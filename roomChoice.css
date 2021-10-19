@@ -1,0 +1,23 @@
+.main{
+    width: 80%;
+    margin: 0 auto;
+    max-width: 500px;
+}
+body{
+    background-color:#ffccff;
+}
+
+.choice{
+    display: inline-block;
+}
+
+img.room1{
+    width: 100px;
+    height: 100px;
+}
+
+.container{
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}

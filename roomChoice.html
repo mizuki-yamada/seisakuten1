@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="roomChoice.css">
+  <title>部屋を選ぼう</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.4/pixi.min.js"></script>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="main">
+        <div class="room">
+            <p>画像をクリックすると画面が変わります</p>
+            <div class="choice">
+                <p>10人</p>
+                <a href="roomChange.html"><img src="brackboad.png" alt="部屋の画像" class="room1"></a> 
+            </div>   
+
+            <div class="choice">
+                <p>50人</p>
+                <a href="roomChange.html"><img src="roomimage.jpg" alt="部屋の画像" class="room1"> </a>
+            </div>  
+
+            <div class="choice">
+                <p>100人</p>
+                <a href="roomChange.html"><img src="roomimage.jpg" alt="部屋の画像" class="room1"></a>
+            </div> 
+        </div>
+    </div>
+    <div class="container">
+        <input type="button" onclick="history.back()" value="戻る">
+    </div>
+    <script type="text/javascript" src="roomChoice.js"></script>
+</body>
+</html>

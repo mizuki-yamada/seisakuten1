@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="sample.css">
+  <title>誕生日を入力しよう</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.4/pixi.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+      <div class="header-logo">誕生日が同じ人がいる確率は？</div>
+    </div>
+
+    <div class="contents">
+      <div class="setsumei">
+        <p>あなたの誕生日を入力してください</p>
+      </div>
+
+        <form id="birthday">
+          <select name="month" class="month-select" id="birth_month" required>
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            </select>　月
+          
+            <select name="day" class="day-select" id="birth_day" required>
+              <option value=""></option>
+            </select>　日
+
+            <!--
+              <h2><span class="month-print">   </span></h2>月
+            <h2><span class="day-print">   </span></h2>日
+            -->
+        </form>
+        <p><button type="submit" formaction="roomChoice.html" form="birthday" class="submit">誕生日を入力</button></p>
+      
+    </div>
+
+  <script type="text/javascript" src="inputBirthday.js"></script>
+</body>
+</html>
