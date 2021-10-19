@@ -4,30 +4,38 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="roomChoice.css">
   <title>部屋を選ぼう</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.4/pixi.min.js"></script>
+  <script src="https://pixijs.download/release/pixi.js"></script>
 </head>
 
 <body>
-    <div class="header"></div>
-    <div class="main">
-        <div class="room">
-            <p>画像をクリックすると画面が変わります</p>
-            <div class="choice">
-                <p>10人</p>
-                <a href="roomChange.html"><img src="brackboad.png" alt="部屋の画像" class="room1"></a> 
-            </div>   
+    <script>
+        const app = new PIXI.Application({backgroundColor: 0x1099bb });
+        document.body.appendChild(app.view);
 
-            <div class="choice">
-                <p>50人</p>
-                <a href="roomChange.html"><img src="roomimage.jpg" alt="部屋の画像" class="room1"> </a>
-            </div>  
+        const style = new PIXI.TextStyle({
+        ontFamily: 'Arial',
+        fontSize: 36,
+        fontStyle: 'italic',
+        fontWeight: 'bold',
+        fill: ['#ffffff', '#00ff99'], // gradient
+        stroke: '#4a1850',
+        strokeThickness: 5,
+        dropShadow: true,
+        dropShadowColor: '#000000',
+        dropShadowBlur: 4,
+        dropShadowAngle: Math.PI / 6,
+        dropShadowDistance: 6,
+        wordWrap: true,
+        wordWrapWidth: 440,
+        lineJoin: 'round',
+    });
 
-            <div class="choice">
-                <p>100人</p>
-                <a href="roomChange.html"><img src="roomimage.jpg" alt="部屋の画像" class="room1"></a>
-            </div> 
-        </div>
-    </div>
+        const message = new PIXI.Text('どの部屋に入るかを選ぼう！',style);
+        message.x = 100;
+        message.y = 100;
+        app.stage.addChild(message);
+
+    </script>
     <div class="container">
         <input type="button" onclick="history.back()" value="戻る">
     </div>
