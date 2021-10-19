@@ -6,6 +6,17 @@
   <title>誕生日を入力しよう</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.2.4/pixi.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="inputBirthday.js"></script>
+  
+  <!--ブラウザバックを禁止する処理-->
+  <script>
+  $(function(){
+      history.pushState(null, null, null);
+      $(window).on("popstate", function(){
+        history.pushState(null, null, null);
+      });
+  });
+  </script>
 </head>
 
 <body>
@@ -47,7 +58,6 @@
         <p><button type="submit" formaction="roomChoice.html" form="birthday" class="submit">誕生日を入力</button></p>
       
     </div>
-
-  <script type="text/javascript" src="inputBirthday.js"></script>
+  
 </body>
 </html>
