@@ -1,19 +1,6 @@
-.main{
-    width: 80%;
-    margin: 0 auto;
-    max-width: 500px;
-}
+
 body{
-    background-color:#ffccff;
-}
-
-.choice{
-    display: inline-block;
-}
-
-img.room1{
-    width: 100px;
-    height: 100px;
+    background-color: #f0f8ff;
 }
 
 .container{
