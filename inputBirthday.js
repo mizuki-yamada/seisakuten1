@@ -161,7 +161,7 @@ document.getElementById("birthday").onkeypress = (e) => {
     }
   }
 
-  function print(){
+  function print(){//できない
     var month_idx = birthMonth.selectedIndex;
     var month = birthMonth.options[month_idx].text;
     document.getElementsByClassName('month-print')[0].textContent = month;
