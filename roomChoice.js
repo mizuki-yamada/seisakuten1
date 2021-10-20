@@ -4,7 +4,7 @@ const STAGE_HEIGHT = 1000;
 const app = new PIXI.Application({
     width: STAGE_WIDTH,
     height: STAGE_HEIGHT,
-    backgroundColor: 0x66FF99,
+    backgroundColor:'#ffffff',
 });
 document.body.appendChild(app.view);
 
@@ -21,6 +21,10 @@ const message = new PIXI.Text('どの部屋に入るかを選ぼう！');
 message.x = STAGE_WIDTH/4+50;
 message.y = STAGE_WIDTH/8;
 app.stage.addChild(message);
+
+//長方形を書く
+const chouhoukei = new.PIXI.Graphics();
+
 
 //responsive view?
 // function update() {
