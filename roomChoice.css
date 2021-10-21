@@ -6,32 +6,46 @@
 .header-logo{
     text-align: center;
 }
+.header-logo:after{
+    white-space: pre;
+    content: '窓にクラスの人数が書かれているよ！\A同じ誕生日の人が見つかりそうな人数の教室を選ぼう！';
+    font-size: 1em;
+    display: block;
+}
+
 .main{
     margin-top: 100px;
 }
 .kousha{
-    margin:auto;
-    width: 200px;
-    height: 200px;
+    margin:0 auto;
+    width: 100px;
+    height: 100px;
     background:#fff3b8;
     border: solid;
     border-color: #c69c6d;
     position: relative;
 }
-.kousha:before {
+.kousha:after {
     content: "";
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 750px;
+    height: 400px;
     background: #fff3b8;
-    top: 200px;
+    top: 100%;/*正方形の高さ分だけ、下の長方形の描画開始位置をずらす*/
     border: solid;
     border-color: #c69c6d;
     position: absolute;
+    right:0;
  }
  
-.container{
-    position: fixed;
-    bottom: 0;
+ /*戻るボタン設定
+ .container{
+     width: 100%;
+     text-align: center;
+     margin: 0 auto;
+ }
+
+.back{
     text-align: center;
 }
+*/
