@@ -6,11 +6,13 @@
 .header-logo{
     text-align: center;
 }
-
+.main{
+    margin-top: 100px;
+}
 .kousha{
     margin:auto;
-    width: 1000px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     background:#fff3b8;
     border: solid;
     border-color: #c69c6d;
@@ -22,8 +24,7 @@
     width: 200px;
     height: 200px;
     background: #fff3b8;
-    top: 30px;
-    left: 400px;
+    top: 200px;
     border: solid;
     border-color: #c69c6d;
     position: absolute;
