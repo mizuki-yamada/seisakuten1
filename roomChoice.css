@@ -17,7 +17,7 @@
     margin-top: 100px;
 }
 .kousha{
-    margin:0 auto;
+    margin: auto;
     width: 100px;
     height: 100px;
     background:#fff3b8;
@@ -26,7 +26,50 @@
     border-right: solid #c69c6d ;
     border-bottom: none;
     border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.clock-circle{
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    border: solid 2px #c69c6d;
+    background: white;   
+}
+
+#clock{
+    margin: 40px auto;
+    max-width: 700px; /* 幅のレスポンシブ対応 、height 値は JavaScript で決める*/
+    position: relative;
+    border-color: #c69c6d;
+}
+
+#minute-hand{
+    animation: rotation-m2 3600s linear infinite; /* 3600秒、1時間かけて一周 */
+    background-color: #000;
+    border-radius: 5px;
+    height: 5px; /* 線幅 */
+    position: absolute;
+    right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
+    top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
+    transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
+    width: 40%;
+}
+
+#hour-hand{
+    animation: rotation-h2 86400s linear infinite; /* 86400秒、12時間かけて一周 */
+    background-color: #000;
+    border-radius: 5px;
+    height: 5px; /* 線幅 */
+    position: absolute;
+    right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
+    top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
+    transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
+    width: 25%; 
+}
+
 .kousha_shita{
     margin:0 auto;
     width: 900px;
