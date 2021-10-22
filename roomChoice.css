@@ -81,17 +81,29 @@
 }
 
 .button{
-    padding-top: 10px;
+    padding-top: 3%;
     display: flex;
     justify-content: space-evenly;
 }
-.button:hover{
-    color: #000;
+
+.choice{
+    width: 120px;
+    height: 120px;
+    border: solid #c69c6d;
+    border-radius: 5px;
+    background-color: aqua;
+    transition: none;
+    box-shadow: 0 3px 0 gray;
+    text-shadow: 0 1px 1px gray;
+    font-size: large;
 }
 
-.button:active{
-    color: aqua;
+.choice:hover{
+    background-color: #b9faff;
+    box-shadow: 0 3px 0 gray;
+    cursor: pointer;
 }
+
  .container{
      width: 100%;
      text-align: center;
