@@ -21,31 +21,40 @@
     width: 100px;
     height: 100px;
     background:#fff3b8;
-    border: solid;
-    border-color: #c69c6d;
-    position: relative;
+    border-top: solid #c69c6d;
+    border-left: solid #c69c6d;
+    border-right: solid #c69c6d ;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
 }
-.kousha:after {
-    content: "";
-    display: block;
-    width: 750px;
-    height: 400px;
-    background: #fff3b8;
-    top: 100%;/*正方形の高さ分だけ、下の長方形の描画開始位置をずらす*/
+.kousha_shita{
+    margin:0 auto;
+    width: 900px;
+    height: 480px;
+    background:#fff3b8;
     border: solid;
     border-color: #c69c6d;
-    position: absolute;
-    right:0;
- }
- 
- /*戻るボタン設定
+    border-radius: 10px;
+}
+
+.button{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.button:hover{
+    color: #000;
+}
+
+.button:active{
+    color: aqua;
+}
  .container{
      width: 100%;
      text-align: center;
-     margin: 0 auto;
+     margin-top: 5%;
  }
 
 .back{
     text-align: center;
 }
-*/
