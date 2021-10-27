@@ -121,3 +121,14 @@ function getRandomYmd(fromYmd, toYmd){
 
     return m + "/" + d;
 }
+
+function showProb(n) {
+    if (n > 365) {
+        return 1;
+    }
+    var ans = 1.0;
+    for(var i = n; n > 0; n--) {
+        ans *= (i-1) / i;
+    }
+    return 1.0 - ans;
+}
