@@ -4,7 +4,6 @@ window.onload = function(){
     //月が決まったの動作
     birthMonth = document.getElementById('birth_month');
     birthMonth.onchange = changeMonth;
-    print();
 };
 
 //月が決まった時の動作
@@ -160,9 +159,3 @@ document.getElementById("birthday").onkeypress = (e) => {
       e.preventDefault();
     }
   }
-
-  /* function print(){//できない
-    var month_idx = birthMonth.selectedIndex;
-    var month = birthMonth.options[month_idx].text;
-    document.getElementsByClassName('month-print')[0].textContent = month;
-  } */
