@@ -1,0 +1,7 @@
+#check_all {
+    display: block;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+    border: 1px solid #232323;
+  }
