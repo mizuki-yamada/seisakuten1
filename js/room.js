@@ -11,6 +11,7 @@ const birthday = new Date("1998/01/01");
 let birthday_map = {};
 let N = 30;
 let clicked_birthday = new Array();
+let birthday_to_color = {};
 
 //Create a Pixi Application
 const app = new PIXI.Application({ 
@@ -19,7 +20,7 @@ const app = new PIXI.Application({
     antialias: true,    // default: false
     transparent: false, // default: false
     resolution: 1,       // default: 1
-    backgroundColor: 0xDDDDDD,
+    backgroundColor: 0xffffff,
 });
 
 //Add the canvas that Pixi automatically created for you to the HTML document
@@ -29,34 +30,33 @@ el.appendChild(app.view);
 app.renderer.plugins.interaction.autoPreventDefault = false;
 app.renderer.view.style.touchAction = 'auto';
 
-const textBlack = new PIXI.TextStyle( { fill: 0x000000 } );
+const textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff } );
 const textWhite = new PIXI.TextStyle( { fill: 0xffffff } );
 
-const circles = []; // array of circle container
+const people = []; // array of person container
 for (var i = 0; i < N; i++) {
     const container = new PIXI.Container();
     container.x = width / 8 *  ( i%8 );
     container.y = height / 4 * Math.floor(i/8);
-    var image = PIXI.Texture.from("../images/chair.png");
-    var circle = new PIXI.Sprite(image);
-    circle.width = 40;
-    circle.height = 80;
-    
-    // const circle = PIXI.Sprite.fromImage("http://www.goodboydigital.com/pixijs/bunnymark_v3/bunny.png")
-    
-    // const circle = new PIXI.Graphics()
+    var image = PIXI.Texture.from("../images/person.png");
+    var person = new PIXI.Sprite(image);
+    person.width = 100;
+    person.height = 100;
+    person.tint = 0xDDDDDD;
+
+    // const person = new PIXI.Graphics()
     // .beginFill(0xCD853F)
     // .drawRect(50, 0, 100, 50)
     // .endFill();
 
-    circle.interactive = true;
-    circle.buttonMode = true;
+    person.interactive = true;
+    person.buttonMode = true;
 
-    circle.on('pointertap', clicked);
+    person.on('pointertap', clicked);
 
-    container.addChild(circle);
+    container.addChild(person);
     app.stage.addChild(container);
-    circles.push(container);
+    people.push(container);
 
     if (i == 0) {
         var m = ("00" + (birthday.getMonth()+1)).slice(-2);
@@ -69,7 +69,7 @@ for (var i = 0; i < N; i++) {
 }
 
 async function check_all() {
-    for (var i = 0; i < circles.length; i++) {
+    for (var i = 0; i < people.length; i++) {
         var timer = new Promise(function(resolve, reject) {
             setTimeout(function() {
                 resolve();
@@ -81,31 +81,29 @@ async function check_all() {
 };
 
 function clicked(e) {
-    update(circles.indexOf(e.target.parent));
+    update(people.indexOf(e.target.parent));
 }
 
 function update(index) {
-    if (circles[index].children.length > 1) {
-        circles[index].removeChild(1, circles[index].children.length-1);
+    if (people[index].children.length > 1) {
+        people[index].removeChild(1, people[index].children.length-1);
         clicked_birthday.splice(clicked_birthday.findIndex((elem) => elem == birthday_map[index]), 1);
     }
     same_index = clicked_birthday.findIndex((elem) => elem == birthday_map[index]);
-    const text = new PIXI.Text(birthday_map[index], textWhite);
+    const text = new PIXI.Text(birthday_map[index], textBlack);
     if (same_index != -1) {
-        circles[same_index].children[1].style = textBlack;
-        text.style = textBlack;
-        showAlert();
+        // people[same_index].children[1].style = textBlack;
+        // text.style = textBlack;
+        var person_color = Math.random() * 0xFFFFFF;
+        people[index].children[0].tint = person_color;
+        people[same_index].children[0].tint = person_color;
     }
     
-    text.position.set( 10, 50 );
-    circles[index].addChild(text);
-    
+    text.position.set(20, 60 );
+    people[index].addChild(text);
     clicked_birthday.push(birthday_map[index]);
 }
 
-function showAlert(e) {
-    alert("same birthday!!");
-}
 
 function getRandomYmd(fromYmd, toYmd){
     var d1 = new Date(fromYmd);
