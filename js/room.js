@@ -3,6 +3,8 @@ if (!PIXI.utils.isWebGLSupported()) {
     type = "canvas";
 }
 
+const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6ejAr3dxsalXxOO1CkQ8b5QtdCD2GZXCR8Ggd291Kr7Se4_w/exec"
+
 // URLから誕生日を取得
 const url = new URL(window.location.href);
 const params = url.searchParams;
@@ -45,8 +47,8 @@ for (var i = 0; i < N; i++) {
     const container = new PIXI.Container();
     container.x = width / 10 *  ( i%10 );
     container.y = Math.floor(i/10) * person_size;
-    var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
-    // var image = PIXI.Texture.from("../images/person.png"); // for local
+    // var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
+    var image = PIXI.Texture.from("../images/person.png"); // for local
     var person = new PIXI.Sprite(image);
     person.width = person_size;
     person.height = person_size;
@@ -139,7 +141,37 @@ function prob_unique(n) {
     var ans = 1.0;
     for(var i = 364; i > 365-N; i--) {
         ans *= i / 365;
-        console.log(ans)
     }
     return ans;
+}
+
+function OnPost(){
+    let SendDATA = {
+      "birthday" : birthday
+    };
+    let postparam = {
+      "method" : "POST",
+      "mode" : "no-cors",
+      "Content-Type" : "application/x-www-form-urlencoded",
+      "body" : JSON.stringify(SendDATA)
+    };
+    fetch(gas_url, postparam);
+    console.log(postparam);
+}
+
+function OnGet(){
+    fetch(gas_url)
+    .then(response => {
+        return response.json();
+    })
+    .then(data => {
+        console.log(data)
+        render_text = data.message;
+        console.log(render_text);
+        document.getElementById("gas_get").innerHTML = render_text;
+    })
+    .catch(error => {
+        console.log(error)
+        document.getElementById("gas_get").innerHTML = error;
+    }); 
 }
