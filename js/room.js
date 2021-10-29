@@ -17,8 +17,8 @@ let clicked_birthday = new Array();
 let birthday_to_color = {};
 
 const width = document.body.clientWidth;
-const height = (N / 10 + 1) * 100;
 const person_size = width/10;
+const height = (N / 10 + 1) * person_size;
 
 //Create a Pixi Application
 const app = new PIXI.Application({ 
@@ -44,7 +44,7 @@ const people = []; // array of person container
 for (var i = 0; i < N; i++) {
     const container = new PIXI.Container();
     container.x = width / 10 *  ( i%10 );
-    container.y = Math.floor(i/10) * 100;
+    container.y = Math.floor(i/10) * person_size;
     var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
     // var image = PIXI.Texture.from("../images/person.png"); // for local
     var person = new PIXI.Sprite(image);
