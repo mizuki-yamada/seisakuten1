@@ -9,73 +9,91 @@ const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6e
 const url = new URL(window.location.href);
 const params = url.searchParams;
 const birthday = params.get('bd');
-const N = Number(params.get('num'));
-document.getElementById('num').innerHTML = N.toString();
-document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
-document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
-
-let birthdays = new Array(N);
+let N;
+let birthdays;
 let clicked_birthday = new Array();
 let birthday_to_color = {};
 
 const width = document.body.clientWidth;
 const person_size = width/10;
-const height = (N / 10 + 1) * person_size;
+let height;
 
-//Create a Pixi Application
-const app = new PIXI.Application({ 
-    width: width,         // default: 800
-    height: height,        // default: 600
-    antialias: true,    // default: false
-    transparent: false, // default: false
-    resolution: 1,       // default: 1
-    backgroundColor: 0xffffff,
-});
+let textBlack;
+let people = []; // array of person container
 
-//Add the canvas that Pixi automatically created for you to the HTML document
-let el = document.getElementById('app');
-el.appendChild(app.view);
-
-app.renderer.plugins.interaction.autoPreventDefault = false;
-app.renderer.view.style.touchAction = 'auto';
-
-const textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff, fontSize: person_size/5 } );
-const textWhite = new PIXI.TextStyle( { fill: 0xffffff } );
-
-const people = []; // array of person container
-for (var i = 0; i < N; i++) {
-    const container = new PIXI.Container();
-    container.x = width / 10 *  ( i%10 );
-    container.y = Math.floor(i/10) * person_size;
-    // var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
-    var image = PIXI.Texture.from("../images/person.png"); // for local
-    var person = new PIXI.Sprite(image);
-    person.width = person_size;
-    person.height = person_size;
-    person.tint = 0xDDDDDD;
-
-    person.interactive = true;
-    person.buttonMode = true;
-
-    person.on('pointertap', clicked);
-
-    container.addChild(person);
-    app.stage.addChild(container);
-    people.push(container);
-
-    if (i == N-1) {
-        birthdays[i] = birthday;
-        const rect = new PIXI.Graphics()
-        .beginFill(0xDDDDDD, 0.5)
-        .drawRect(0, 0, person_size, person_size)
-        .endFill();
-        container.addChild(rect);
-        update(i);
+const wait = (async()=> {
+    if (params.get('num') == 'secret') {
+        // await OnPost();
+        birthdays = await OnGet();
+        console.log(birthdays);
+        N = birthdays.length;
     }
     else {
-        birthdays[i] = getRandomYmd('1920/01/01', '2020/01/01');
+        N = Number(params.get('num'));
+        birthdays = new Array(N)
+        for (var i = 0; i < N; i++) {
+            if (i == N-1) {
+                birthdays[i] = birthday;
+            }
+            else {
+                birthdays[i] = getRandomYmd('1920/01/01', '2020/01/01');
+            }
+        }
     }
-}
+    document.getElementById('num').innerHTML = N.toString();
+    document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
+    document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
+    
+    height = (N / 10 + 1) * person_size;
+
+    //Create a Pixi Application
+    const app = new PIXI.Application({ 
+        width: width,         // default: 800
+        height: height,        // default: 600
+        antialias: true,    // default: false
+        transparent: false, // default: false
+        resolution: 1,       // default: 1
+        backgroundColor: 0xffffff,
+    });
+
+    //Add the canvas that Pixi automatically created for you to the HTML document
+    let el = document.getElementById('app');
+    el.appendChild(app.view);
+
+    app.renderer.plugins.interaction.autoPreventDefault = false;
+    app.renderer.view.style.touchAction = 'auto';
+
+    textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff, fontSize: person_size/5 } );
+
+    for (var i = 0; i < N; i++) {
+        const container = new PIXI.Container();
+        container.x = width / 10 *  ( i%10 );
+        container.y = Math.floor(i/10) * person_size;
+        var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
+        // var image = PIXI.Texture.from("../images/person.png"); // for local
+        var person = new PIXI.Sprite(image);
+        person.width = person_size;
+        person.height = person_size;
+        person.tint = 0xDDDDDD;
+
+        person.interactive = true;
+        person.buttonMode = true;
+
+        person.on('pointertap', clicked);
+
+        container.addChild(person);
+        app.stage.addChild(container);
+        people.push(container);
+        if (i == N-1) {
+            const rect = new PIXI.Graphics()
+            .beginFill(0xDDDDDD, 0.5)
+            .drawRect(0, 0, person_size, person_size)
+            .endFill();
+            container.addChild(rect);
+            update(i);
+        }
+    }    
+})();
 
 async function check_all() {
     for (var i = 0; i < people.length; i++) {
@@ -118,7 +136,6 @@ function update(index) {
     clicked_birthday.push(target_birthday);
 }
 
-
 function getRandomYmd(fromYmd, toYmd){
     var d1 = new Date(fromYmd);
     var d2 = new Date(toYmd);
@@ -145,7 +162,7 @@ function prob_unique(n) {
     return ans;
 }
 
-function OnPost(){
+async function OnPost(){
     let SendDATA = {
       "birthday" : birthday
     };
@@ -159,19 +176,16 @@ function OnPost(){
     console.log(postparam);
 }
 
-function OnGet(){
-    fetch(gas_url)
+async function OnGet(){
+    return fetch(gas_url)
     .then(response => {
         return response.json();
     })
     .then(data => {
-        console.log(data)
         render_text = data.message;
-        console.log(render_text);
-        document.getElementById("gas_get").innerHTML = render_text;
+        return render_text;
     })
     .catch(error => {
-        console.log(error)
-        document.getElementById("gas_get").innerHTML = error;
-    }); 
+        console.log(error);
+    });
 }

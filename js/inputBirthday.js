@@ -159,3 +159,20 @@ document.getElementById("birthday").onkeypress = (e) => {
       e.preventDefault();
     }
   }
+
+function OnPost(){
+    const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6ejAr3dxsalXxOO1CkQ8b5QtdCD2GZXCR8Ggd291Kr7Se4_w/exec"
+    var month = birthMonth.value.padStart(2, '0');
+    var day = birthDay.value.padStart(2, '0');
+    let SendDATA = {
+      "birthday" : month + "/" + day
+    };
+    let postparam = {
+      "method" : "POST",
+      "mode" : "no-cors",
+      "Content-Type" : "application/x-www-form-urlencoded",
+      "body" : JSON.stringify(SendDATA)
+    };
+    fetch(gas_url, postparam);
+    console.log(postparam);
+}
