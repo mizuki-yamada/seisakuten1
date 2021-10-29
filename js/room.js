@@ -3,18 +3,22 @@ if (!PIXI.utils.isWebGLSupported()) {
     type = "canvas";
 }
 
-const width = document.body.clientWidth;
-const height = window.innerHeight;
-
 // URLから誕生日を取得
 const url = new URL(window.location.href);
 const params = url.searchParams;
 const birthday = params.get('bd');
 const N = Number(params.get('num'));
+document.getElementById('num').innerHTML = N.toString();
+document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
+document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
 
 let birthdays = new Array(N);
 let clicked_birthday = new Array();
 let birthday_to_color = {};
+
+const width = document.body.clientWidth;
+const height = (N / 10 + 1) * 100;
+const person_size = width/10;
 
 //Create a Pixi Application
 const app = new PIXI.Application({ 
@@ -33,18 +37,19 @@ el.appendChild(app.view);
 app.renderer.plugins.interaction.autoPreventDefault = false;
 app.renderer.view.style.touchAction = 'auto';
 
-const textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff } );
+const textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff, fontSize: person_size/5 } );
 const textWhite = new PIXI.TextStyle( { fill: 0xffffff } );
 
 const people = []; // array of person container
 for (var i = 0; i < N; i++) {
     const container = new PIXI.Container();
     container.x = width / 10 *  ( i%10 );
-    container.y = height / 5 * Math.floor(i/10);
-    var image = PIXI.Texture.from("/seisakuten1/images/person.png");
+    container.y = Math.floor(i/10) * 100;
+    var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
+    // var image = PIXI.Texture.from("../images/person.png"); // for local
     var person = new PIXI.Sprite(image);
-    person.width = 100;
-    person.height = 100;
+    person.width = person_size;
+    person.height = person_size;
     person.tint = 0xDDDDDD;
 
     person.interactive = true;
@@ -60,7 +65,7 @@ for (var i = 0; i < N; i++) {
         birthdays[i] = birthday;
         const rect = new PIXI.Graphics()
         .beginFill(0xDDDDDD, 0.5)
-        .drawRect(0, 0, 100, 100)
+        .drawRect(0, 0, person_size, person_size)
         .endFill();
         container.addChild(rect);
         update(i);
@@ -75,7 +80,7 @@ async function check_all() {
         var timer = new Promise(function(resolve, reject) {
             setTimeout(function() {
                 resolve();
-            }, 100);
+            }, 10);
         });
         await timer;
         update(i);
@@ -106,7 +111,7 @@ function update(index) {
         );
     }
     
-    text.position.set(20, 60 );
+    text.position.set(person_size*0.25, person_size*0.7);
     people[index].addChild(text);
     clicked_birthday.push(target_birthday);
 }
@@ -127,13 +132,14 @@ function getRandomYmd(fromYmd, toYmd){
     return m + "/" + d;
 }
 
-function showProb(n) {
+function prob_unique(n) {
     if (n > 365) {
-        return 1;
+        return 0;
     }
     var ans = 1.0;
-    for(var i = n; n > 0; n--) {
-        ans *= (i-1) / i;
+    for(var i = 364; i > 365-N; i--) {
+        ans *= i / 365;
+        console.log(ans)
     }
-    return 1.0 - ans;
+    return ans;
 }

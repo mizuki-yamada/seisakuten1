@@ -8,8 +8,11 @@
 <body>
   <p>人をクリックして，みんなの誕生日を調べてみよう！</p><input type="button" id="check_all" value="全員分確かめる" onclick="check_all();" />
   <main id="app"></main>
+
+  <p>この教室には<var id="num"></var>人いるので</p>
+  <p>全員が異なる誕生日である確率は<var id="prob_unique"></var> です</p>
+  <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob"></var> です</p>
+
   <script type="text/javascript" src="./js/room.js"></script>
-  
-  <p>教室に同じ誕生日の人がいる確率を計算してみると</p>
 </body>
 </html>
