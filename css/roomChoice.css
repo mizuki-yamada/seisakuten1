@@ -1,26 +1,18 @@
-html{
-    height: 100%;
-}
-
- body{
+ html,body{
     height: 100%;
     background-color: #ffffff;
 }
-
-.header-logo{
-    margin-top: 5%;
-    text-align: center;
+img{
+   width: 100%;
+   height: 280px;
+   background-size: cover;
 }
-.header-logo:after{
-    white-space: pre;
-    content: '窓にクラスの人数が書かれているよ！\A同じ誕生日の人が見つかりそうな人数の教室を選ぼう！';
-    font-size: 1em;
-    display: block;
+.header-logo{
+    text-align: center;
 }
 
 .main{
-    margin-top: 10%;
-    height: auto;
+    margin-top: 1%;
     text-align: center;
 }
 .kousha{
