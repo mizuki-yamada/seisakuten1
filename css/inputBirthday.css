@@ -1,4 +1,4 @@
-
+/* 
 .header {
     background-color: #fff;
     height: 20%;
@@ -9,8 +9,8 @@
     text-align: center;
     font-size: 36px;
     padding: 40px 40px;
-  }
-
+  } */
+.background img{width: 100%;}
 body{
     background-color: #fff;
 }
@@ -70,10 +70,6 @@ body{
     background-size: 5px 5px, 5px 5px;
     background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
     background-repeat: no-repeat;
-}
-
-.setsumei p{
-    font-size: 32px;
 }
 
 .submit{
