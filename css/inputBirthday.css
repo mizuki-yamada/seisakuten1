@@ -1,23 +1,23 @@
-/* 
-.header {
-    background-color: #fff;
-    height: 20%;
-    text-align: center;
-  }
-
-  .header-logo {
-    text-align: center;
-    font-size: 36px;
-    padding: 40px 40px;
-  } */
-.background img{width: 100%;}
 body{
-    background-color: #fff;
+  color: #333;
 }
-.contents{
-    text-align: center;
-    font-size: 18px;
+
+.background{
+  color: #333;
+  background-color: rgb(59, 56, 56);
+  position: relative;
 }
+
+.background form{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: #333
+}
+.background img{width: 100%;}
 
 .month-select {
         /* デフォルトのスタイルを解除*/
@@ -27,13 +27,13 @@ body{
         /* スタイル指定*/
     display: inline-block;
     width: 5%; /* 幅 */
-    margin: 1em 0; /* 前後の余白 */
-    padding: 0.5em; /* 文字周りの余白 */
+    margin: 1.0em 3.5em 1.0em 1.0em; /* 前後の余白 */
+    padding: 1.0em 1.5em; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
     line-height: 3.0em; /* 行高 */
-    font-size: 1.0em; /* フォントサイズ */
+    font-size: 1.2em; /* フォントサイズ */
     font-weight: 700; /* 太字に */
-    color: #333; /* 文字色 */
+    color:#333; /* 文字色 */
     border-radius: 4px; /* 角丸 */
     background-color: #f7f9fb; /* 背景色 */
     /* border: solid 1px #fc00d2; /* 枠線 */
@@ -54,11 +54,11 @@ body{
     /* スタイル指定*/
     display: inline-block;
     width: 5%; /* 幅 */
-    margin: 1.0em 0em 1.0em 1.0em; /* 前後の余白 */
-    padding: 0.5em; /* 文字周りの余白 */
+    margin: 1.0em 4.0em 1.0em 1.0em; /* 前後の余白 */
+    padding: 1.0em 1.5em; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
     line-height: 3.0em; /* 行高 */
-    font-size: 1.0em; /* フォントサイズ */
+    font-size: 1.2em; /* フォントサイズ */
     font-weight: 700; /* 太字に */
     color: #333; /* 文字色 */
     border-radius: 4px; /* 角丸 */
@@ -73,8 +73,9 @@ body{
 }
 
 .submit{
-    color: #333; /* 文字色 */
-    border-radius: 4px; /* 角丸 */
-    /* border: solid 1px #fc00d2; /* 枠線 */
-    cursor: pointer;
+  position: absolute;
+  top: 75%;
+  left: 65%;
+  width: 10%;
+  cursor: pointer;
 }
