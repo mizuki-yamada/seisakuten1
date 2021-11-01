@@ -10,16 +10,13 @@
 </head>
 
 <body>
-    <!-- <div class="header">
-      <div class="header-logo">誕生日が同じ人がいる確率は？</div>
-      <div class="notice">ここに問題文入れる</div>
-    </div> -->
 
     <div class="contents">
-      <p class="background">
-        <img src="./images/birthday_home.jpg" alt="home">
-      </p>
-
+      <div class="background">
+        <p class="background">
+          <img src="./images/birthday_home.jpg" alt="home">
+        </p>
+  
         <form id="birthday">
           <select name="month" class="month-select" id="birth_month" required>
             <option value=""></option>
@@ -35,14 +32,17 @@
             <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
-            </select>　月
+            </select>
           
             <select name="day" class="day-select" id="birth_day" required>
               <option value=""></option>
-            </select>　日
-
+            </select>　
         </form>
-        <p><button type="submit" formaction="roomChoice.html" form="birthday" class="submit" onclick="OnPost()">誕生日を入力</button></p>
+      <div class="submit">
+        <a href="roomChoice.html"><img src="./images/input_birthday_button.jpg" alt="button"></a>
+      </div>
+      </div>
+        <!-- <p><button type="submit" formaction="roomChoice.html" form="birthday" class="submit" onclick="OnPost()">誕生日を入力</button></p> -->
       
     </div>
     <!--ブラウザバックを禁止する処理？-->
