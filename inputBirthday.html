@@ -12,46 +12,49 @@
 <body>
 
     <div class="contents">
-      <div class="background">
-        <p class="background">
+        <div class="background">
           <img src="./images/birthday_home.jpg" alt="home">
-        </p>
-  
-        <form id="birthday">
-          <select name="month" class="month-select" id="birth_month" required>
-            <option value=""></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            </select>
-          
-            <select name="day" class="day-select" id="birth_day" required>
+        </div>
+        
+        <div class="form">
+          <form id="birthday">
+            <select name="month" class="month-select" id="birth_month" required>
               <option value=""></option>
-            </select>　
-        </form>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              </select>月
+            
+              <select name="day" class="day-select" id="birth_day" required>
+                <option value=""></option>
+              </select>日
+          </form>
+        </div>
+        
       <div class="submit">
         <a href="roomChoice.html"><img src="./images/input_birthday_button.jpg" alt="button"></a>
       </div>
-      </div>
         <!-- <p><button type="submit" formaction="roomChoice.html" form="birthday" class="submit" onclick="OnPost()">誕生日を入力</button></p> -->
-      
-    </div>
+    </div>>
     <!--ブラウザバックを禁止する処理？-->
-    <script>
+   <!--  <script>
       history.pushState(null, null, location.href);
       window.addEventListener('popstate', (e) => {
       history.go(1);
     });
-    </script>
+    </script> -->
   
+    <div class="footer">
+      <p><a href="https://kurapyon31.github.io/probUT/">TOPに戻る</a></p>
+    </div>
 </body>
 </html>
