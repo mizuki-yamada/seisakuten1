@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>確率を計算してみよう</title>
+  <script src="src/pixi.min.js"></script>
+</head>
+<body>
+  <p>教室に<input id="num" value=30 min=0 max=366>人いるとき，</p>
+  <p>全員が異なる誕生日である確率は<var id="prob_unique"></var> です</p>
+  <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob"></var> です</p>
+  
+  <script>
+  let N = document.getElementById('num').toString();
+  document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
+  document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
+  function prob_unique(n) {
+    if (n > 365) {
+        return 0;
+    }
+    var ans = 1.0;
+    for(var i = 364; i > 365-N; i--) {
+        ans *= i / 365;
+    }
+    return ans;
+  }
+  </script>
+</body>
+</html>
