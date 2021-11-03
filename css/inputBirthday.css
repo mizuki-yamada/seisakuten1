@@ -1,23 +1,7 @@
-
-.header {
-    background-color: #fff;
-    height: 20%;
-    text-align: center;
-  }
-
-  .header-logo {
-    text-align: center;
-    font-size: 36px;
-    padding: 40px 40px;
-  }
-
 body{
-    background-color: #fff;
+  background-color: rgb(56, 59, 59);
 }
-.contents{
-    text-align: center;
-    font-size: 18px;
-}
+.background img{width: 100%;}
 
 .month-select {
         /* デフォルトのスタイルを解除*/
@@ -27,17 +11,24 @@ body{
         /* スタイル指定*/
     display: inline-block;
     width: 5%; /* 幅 */
-    margin: 1em 0; /* 前後の余白 */
-    padding: 0.5em; /* 文字周りの余白 */
+    margin: 1% 4% 1% 2%; /* 前後の余白 */
+    padding: 1%; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
-    line-height: 3.0em; /* 行高 */
-    font-size: 1.0em; /* フォントサイズ */
-    font-weight: 700; /* 太字に */
-    color: #333; /* 文字色 */
+    line-height: 250%; /*行高 */
+    font-size: 100%; /*フォントサイズ */
+    font-weight: 900; /* 太字に */
+    color:#333; /* 文字色 */
     border-radius: 4px; /* 角丸 */
     background-color: #f7f9fb; /* 背景色 */
     /* border: solid 1px #fc00d2; /* 枠線 */
     box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+    /*位置指定*/
+    /* position: absolute;
+    top: 75%;
+    left: 40%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
     /* 三角マークを作る */
     background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
     background-size: 5px 5px, 5px 5px;
@@ -54,31 +45,159 @@ body{
     /* スタイル指定*/
     display: inline-block;
     width: 5%; /* 幅 */
-    margin: 1.0em 0em 1.0em 1.0em; /* 前後の余白 */
-    padding: 0.5em; /* 文字周りの余白 */
+    margin: 1% 4% 1% 2%; /* 前後の余白 */
+    padding: 1%; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
-    line-height: 3.0em; /* 行高 */
-    font-size: 1.0em; /* フォントサイズ */
-    font-weight: 700; /* 太字に */
+    line-height: 250%; /*行高 */
+    font-size: 100%; /*フォントサイズ */
+    font-weight: 900; /* 太字に */
     color: #333; /* 文字色 */
     border-radius: 4px; /* 角丸 */
     background-color: #f7f9fb; /* 背景色 */
     /* border: solid 1px #fc00d2; 枠線 */
     box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+    /*位置指定*/
+    /* position: absolute;
+    top: 75%;
+    left: 51%;
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%); */
     /* 三角マークを作る */
     background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
     background-size: 5px 5px, 5px 5px;
     background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
     background-repeat: no-repeat;
-}
-
-.setsumei p{
-    font-size: 32px;
-}
-
-.submit{
-    color: #333; /* 文字色 */
-    border-radius: 4px; /* 角丸 */
-    /* border: solid 1px #fc00d2; /* 枠線 */
+  }
+  .submit{
+    margin: 0 auto;
     cursor: pointer;
+  }
+  .submit img{  
+    width: 150%;
+  }
+
+  .footer{
+    width: 100%;
+    margin-left: 45%;
+    margin-top: 1%;
+}
+
+  .footer a:link{
+    color: white;
+  }
+  .footer a:visited{
+    color: white;
+  }
+  .footer a:hover{
+    color: skyblue;
+  }
+  .footer a:active{
+    color: pink
+  }
+
+@media screen and (min-width:481px) {
+  
+  body{
+    background-color: rgb(56, 59, 59);
+  }
+
+  .background img{width: 100%;}
+  
+  .form{
+    text-align: center;
+    color: white;
+  }
+
+  .month-select {
+          /* デフォルトのスタイルを解除*/
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+          /* スタイル指定*/
+      display: inline-block;
+      width: 5%; /* 幅 */
+      margin: 1% 4% 1% 2%; /* 前後の余白 */
+      padding: 1%; /* 文字周りの余白 */
+      cursor: pointer; /* カーソルを指に */
+      line-height: 250%; /*行高 */
+      font-size: 100%; /*フォントサイズ */
+      font-weight: 900; /* 太字に */
+      color:#333; /* 文字色 */
+      border-radius: 4px; /* 角丸 */
+      background-color: #f7f9fb; /* 背景色 */
+      /* border: solid 1px #fc00d2; /* 枠線 */
+      box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+      /*位置指定*/
+      /* position: absolute;
+      top: 75%;
+      left: 40%;
+      -ms-transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%); */
+      /* 三角マークを作る */
+      background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+      background-size: 5px 5px, 5px 5px;
+      background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+      background-repeat: no-repeat;
+    }
+
+    .day-select {
+      /* デフォルトのスタイルを解除*/
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      /* スタイル指定*/
+      display: inline-block;
+      width: 5%; /* 幅 */
+      margin: 1% 4% 1% 1%; /* 前後の余白 */
+      padding: 1%; /* 文字周りの余白 */
+      cursor: pointer; /* カーソルを指に */
+      line-height: 250%; /*行高 */
+      font-size: 100%; /*フォントサイズ */
+      font-weight: 900; /* 太字に */
+      color: #333; /* 文字色 */
+      border-radius: 4px; /* 角丸 */
+      background-color: #f7f9fb; /* 背景色 */
+      /* border: solid 1px #fc00d2; 枠線 */
+      box-shadow: 0 3px 3px -2px rgba(3, 29, 41, 0.15); /* 影 */
+      /*位置指定*/
+      /* position: absolute;
+      top: 75%;
+      left: 51%;
+      -ms-transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      transform: translate(-50%,-50%); */
+      /* 三角マークを作る */
+      background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+      background-size: 5px 5px, 5px 5px;
+      background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+      background-repeat: no-repeat;
+    }
+  .submit{
+    margin-left:40%;
+    cursor: pointer;
+  }
+  .submit img{  
+    width: 30%;
+  }
+
+  .footer{
+    width: 100%;
+    margin-left: 45%;
+    margin-top: 1%;
+  }
+
+  .footer a:link{
+    color: white;
+  }
+  .footer a:visited{
+    color: white;
+  }
+  .footer a:hover{
+    color: skyblue;
+  }
+  .footer a:active{
+    color: pink
+  }
 }
