@@ -174,8 +174,8 @@ body{
       background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
       background-repeat: no-repeat;
     }
-  .submit{
-    margin-left:40%;
+  .submit1{
+    margin-left:45%;
     cursor: pointer;
   }
   .submit img{  
