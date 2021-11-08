@@ -1,0 +1,25 @@
+body {
+  background-color: #385723;
+}
+
+img {
+  width: 100%;
+}
+
+#content {
+  margin : 5%;
+}
+
+.box {
+  padding: 0 20px; 
+  margin-bottom: 20px; 
+  border: 2px dashed whitesmoke;
+}
+
+h3, p {
+  color: white;
+}
+
+h3 {
+  text-decoration-line: underline;
+}

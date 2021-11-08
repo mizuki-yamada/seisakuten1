@@ -4,26 +4,20 @@
   <meta charset="utf-8">
   <title>確率を計算してみよう</title>
   <script src="src/pixi.min.js"></script>
+  <link rel="stylesheet" href="./css/birthdayProb.css">
 </head>
 <body>
-  <p>教室に<input id="num" value=30 min=0 max=366>人いるとき，</p>
-  <p>全員が異なる誕生日である確率は<var id="prob_unique"></var> です</p>
-  <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob"></var> です</p>
+  <div id="content">
+    <img src="./images/explanation1.png" alt="">
+    <div class="box">
+      <h3>計算してみよう！</h3>
+    <p>教室に<input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()">人いるとき，</p>
+    <p>全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です</p>
+    <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob">70.6</var> %です</p>
+    </div>
+    <img src="./images/explanation2.png" alt="">
+  </div>
   
-  <script>
-  let N = document.getElementById('num').toString();
-  document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
-  document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
-  function prob_unique(n) {
-    if (n > 365) {
-        return 0;
-    }
-    var ans = 1.0;
-    for(var i = 364; i > 365-N; i--) {
-        ans *= i / 365;
-    }
-    return ans;
-  }
-  </script>
+  <script src="js/birthdayProb.js"></script>
 </body>
 </html>
