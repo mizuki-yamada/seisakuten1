@@ -1,7 +1,39 @@
+body {
+  background-color: #C9AD7D;
+}
+
+.blackboard {
+  text-align: center;
+  position: relative;
+}
+
+.blackboard img {
+  width: 50%;
+}
+
+.blackboard p {
+  position: absolute;
+  text-align: left;
+  top: 10%;
+  padding: 0 30%;
+  color: white;
+  font-size: small;
+}
+
 #check_all {
-    display: block;
-    cursor: pointer;
-    width: 160px;
-    text-align: center;
-    border: 1px solid #232323;
+  display: block;
+  cursor: pointer;
+  width: 160px;
+  text-align: center;
+  border: 1px solid #232323;
+}
+
+@media (max-width: 600px) {
+  .blackboard img {
+    width: 100%;
   }
+
+  .blackboard p {
+    padding: 0 5%;
+  }
+}

@@ -10,15 +10,18 @@ const url = new URL(window.location.href);
 const params = url.searchParams;
 const birthday = params.get('bd');
 let N;
+const row_n = 10;
 let birthdays;
+let clicked_index = new Set();
 let clicked_birthday = new Array();
 let birthday_to_color = {};
 
 const width = document.body.clientWidth;
-const person_size = width/10;
+const person_width = width/row_n;
+const person_height = person_width * 1.2;
 let height;
 
-let textBlack;
+let textWhite;
 let people = []; // array of person container
 
 const wait = (async()=> {
@@ -40,11 +43,9 @@ const wait = (async()=> {
             }
         }
     }
-    document.getElementById('num').innerHTML = N.toString();
-    document.getElementById('prob_unique').innerHTML = prob_unique(N).toPrecision([5]);
-    document.getElementById('prob').innerHTML = (1.0-prob_unique(N)).toPrecision([5]);
     
-    height = (N / 10 + 1) * person_size;
+    height = (Math.floor((N-1) / row_n) + 1) * person_height;
+   //  height = ((N-1) / row_n + 1) * person_height;
 
     //Create a Pixi Application
     const app = new PIXI.Application({ 
@@ -53,7 +54,7 @@ const wait = (async()=> {
         antialias: true,    // default: false
         transparent: false, // default: false
         resolution: 1,       // default: 1
-        backgroundColor: 0xffffff,
+        backgroundColor: 0xC9AD7D,
     });
 
     //Add the canvas that Pixi automatically created for you to the HTML document
@@ -63,18 +64,19 @@ const wait = (async()=> {
     app.renderer.plugins.interaction.autoPreventDefault = false;
     app.renderer.view.style.touchAction = 'auto';
 
-    textBlack = new PIXI.TextStyle( { fill: 0x000000, stroke: 0xffffff, fontSize: person_size/5 } );
+    textWhite = new PIXI.TextStyle( { fill: 0xffffff, stroke: 0xffffff, fontSize: person_width/5 } );
 
     for (var i = 0; i < N; i++) {
         const container = new PIXI.Container();
-        container.x = width / 10 *  ( i%10 );
-        container.y = Math.floor(i/10) * person_size;
-        var image = PIXI.Texture.from("/seisakuten1/images/person.png"); // for github pages
-        // var image = PIXI.Texture.from("../images/person.png"); // for local
+        container.x = width / row_n *  ( i%row_n );
+        container.y = Math.floor(i/row_n) * person_height;
+        // var image_path_local = "../images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for local
+        var image_path = "/seisakuten1/images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for github pages
+        var image = PIXI.Texture.from(image_path); 
         var person = new PIXI.Sprite(image);
-        person.width = person_size;
-        person.height = person_size;
-        person.tint = 0xDDDDDD;
+        person.width = person_width;
+        person.height = person_height;
+        // person.tint = 0xDDDDDD;
 
         person.interactive = true;
         person.buttonMode = true;
@@ -85,11 +87,9 @@ const wait = (async()=> {
         app.stage.addChild(container);
         people.push(container);
         if (i == N-1) {
-            const rect = new PIXI.Graphics()
-            .beginFill(0xDDDDDD, 0.5)
-            .drawRect(0, 0, person_size, person_size)
-            .endFill();
-            container.addChild(rect);
+            const you = new PIXI.Text("YOU", new PIXI.TextStyle( { fill: 0xffffff, stroke: 0xffffff, fontSize: person_width/6 } ));
+            you.position.set(person_width*0.32, person_height * 0.4);
+            container.addChild(you);
             update(i);
         }
     }    
@@ -112,28 +112,34 @@ function clicked(e) {
 }
 
 function update(index) {
+    clicked_index.add(index);
     var target_birthday = birthdays[index];
+    // すでに押されている要素
     if (people[index].children.length > 1) {
         people[index].removeChild(1, people[index].children.length-1);
         clicked_birthday.splice(clicked_birthday.findIndex((elem) => elem == target_birthday), 1);
     }
-    const text = new PIXI.Text(target_birthday, textBlack);
+    const text = new PIXI.Text(target_birthday, textWhite);
+    text.position.set(person_width*0.25, person_height*0.7);
+    people[index].addChild(text);
+    
+    // クリックした中に同じ誕生日が存在する
     if (clicked_birthday.findIndex((elem) => elem == target_birthday) != -1) {
         var person_color = birthday_to_color[target_birthday];
-        if (person_color == undefined) {
+        if (person_color == undefined) { // 初めてのペア
             person_color = Math.random() * 0xFFFFFF;
             birthday_to_color[target_birthday] = person_color;
         }
-        people[index].children[0].tint = person_color;
+        people[index].children[1].tint = person_color;
         const same_indices = birthdays.flatMap((e, i) => (e == target_birthday ? i : []));
         same_indices.forEach((i) => {
-            people[i].children[0].tint = person_color;}
+            people[i].children[1].tint = person_color;}
         );
     }
-    
-    text.position.set(person_size*0.25, person_size*0.7);
-    people[index].addChild(text);
     clicked_birthday.push(target_birthday);
+    if (clicked_index.size == N) {
+        document.getElementById('message').innerHTML = getProbMessage();
+    }
 }
 
 function getRandomYmd(fromYmd, toYmd){
@@ -160,6 +166,13 @@ function prob_unique(n) {
         ans *= i / 365;
     }
     return ans;
+}
+
+function getProbMessage() {
+    var message = 
+    N + "人の教室の中に" + 
+    "少なくとも1組同じ誕生日がいる確率は" + (100-100*prob_unique(N)).toPrecision([3]) + "%です．";
+    return message
 }
 
 async function OnPost(){

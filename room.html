@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <title>教室の中で試してみよう</title>
+  <link rel="stylesheet" href="./css/room.css">
   <script src="src/pixi.min.js"></script>
 </head>
 <body>
-  <p>クリックして，みんなの誕生日を調べてみよう！</p>
+  <div class="blackboard">
+    <img src="./images/blackboard.png" alt="">
+    <p id="message">クリックして，みんなの誕生日を調べてみよう！</p>
+  </div>
+    
+  
   <input type="button" id="check_all" value="全員分確かめる" onclick="check_all();" />
   <main id="app"></main>
 
-  <button onclick="location.href='birthdayProb.html'">計算</button>
-<!-- 
-  <p>この教室には<var id="num"></var>人いるので</p>
-  <p>全員が異なる誕生日である確率は<var id="prob_unique"></var> です</p>
-  <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob"></var> です</p> -->
+  <button onclick="location.href='birthdayProb.html'">解説ページへ</button>
   
   <script type="text/javascript" src="./js/room.js"></script>
 </body>
