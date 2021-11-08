@@ -70,13 +70,12 @@ const wait = (async()=> {
         const container = new PIXI.Container();
         container.x = width / row_n *  ( i%row_n );
         container.y = Math.floor(i/row_n) * person_height;
-        // var image_path_local = "../images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for local
+        // var image_path = "../images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for local
         var image_path = "/seisakuten1/images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for github pages
         var image = PIXI.Texture.from(image_path); 
         var person = new PIXI.Sprite(image);
         person.width = person_width;
         person.height = person_height;
-        // person.tint = 0xDDDDDD;
 
         person.interactive = true;
         person.buttonMode = true;
@@ -96,7 +95,7 @@ const wait = (async()=> {
 })();
 
 async function check_all() {
-    for (var i = 0; i < people.length; i++) {
+    for (var i = 0; i < people.length-1; i++) {
         var timer = new Promise(function(resolve, reject) {
             setTimeout(function() {
                 resolve();
@@ -119,10 +118,6 @@ function update(index) {
         people[index].removeChild(1, people[index].children.length-1);
         clicked_birthday.splice(clicked_birthday.findIndex((elem) => elem == target_birthday), 1);
     }
-    const text = new PIXI.Text(target_birthday, textWhite);
-    text.position.set(person_width*0.25, person_height*0.7);
-    people[index].addChild(text);
-    
     // クリックした中に同じ誕生日が存在する
     if (clicked_birthday.findIndex((elem) => elem == target_birthday) != -1) {
         var person_color = birthday_to_color[target_birthday];
@@ -130,12 +125,21 @@ function update(index) {
             person_color = Math.random() * 0xFFFFFF;
             birthday_to_color[target_birthday] = person_color;
         }
-        people[index].children[1].tint = person_color;
+       
         const same_indices = birthdays.flatMap((e, i) => (e == target_birthday ? i : []));
         same_indices.forEach((i) => {
-            people[i].children[1].tint = person_color;}
+            const ellipse = new PIXI.Graphics()
+                .lineStyle(3,person_color)
+                .drawEllipse(person_width*0.5, person_height*0.8, person_width*0.3, person_height*0.15);
+            people[i].addChild(ellipse);
+            }
         );
     }
+
+    const text = new PIXI.Text(target_birthday, textWhite);
+    text.position.set(person_width*0.25, person_height*0.7);
+    people[index].addChild(text);
+
     clicked_birthday.push(target_birthday);
     if (clicked_index.size == N) {
         document.getElementById('message').innerHTML = getProbMessage();
