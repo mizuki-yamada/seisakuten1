@@ -11,11 +11,18 @@ body {
   width: 50%;
 }
 
-.blackboard p {
+#blackboard-contents {
   position: absolute;
-  text-align: left;
   top: 10%;
   padding: 0 30%;
+}
+
+#blackboard-contents button {
+  display: none;
+}
+
+#message {
+  text-align: left;
   color: white;
   font-size: small;
 }

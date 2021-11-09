@@ -9,15 +9,15 @@
 <body>
   <div class="blackboard">
     <img src="./images/blackboard.png" alt="">
-    <p id="message">クリックして，みんなの誕生日を調べてみよう！</p>
+    <div id="blackboard-contents">
+      <p id="message">クリックして，みんなの誕生日を調べてみよう！</p>
+      <button id="explanation-button" onclick="location.href='birthdayProb.html'">解説ページへ</button>
+    </div>
   </div>
-    
   
   <input type="button" id="check_all" value="全員分確かめる" onclick="check_all();" />
   <main id="app"></main>
 
-  <button onclick="location.href='birthdayProb.html'">解説ページへ</button>
-  
   <script type="text/javascript" src="./js/room.js"></script>
 </body>
 </html>

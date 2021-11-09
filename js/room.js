@@ -141,8 +141,11 @@ function update(index) {
     people[index].addChild(text);
 
     clicked_birthday.push(target_birthday);
+
+    // when all elements are clicked
     if (clicked_index.size == N) {
         document.getElementById('message').innerHTML = getProbMessage();
+        document.getElementById('explanation-button').style.display="inline";
     }
 }
 
@@ -173,9 +176,11 @@ function prob_unique(n) {
 }
 
 function getProbMessage() {
+    var M = Object.keys(birthday_to_color).length;
     var message = 
-    N + "人の教室の中に" + 
-    "少なくとも1組同じ誕生日がいる確率は" + (100-100*prob_unique(N)).toPrecision([3]) + "%です．";
+    "同じ誕生日の組は" + M + "組でした。<br>" 
+    + N + "人の教室の中に少なくとも1組同じ誕生日がいる確率は" 
+    + (100-100*prob_unique(N)).toPrecision([3]) + "%です。";
     return message
 }
 
