@@ -21,7 +21,7 @@ html,body{
     appearance: none;
         /* スタイル指定*/
     display: inline-block;
-    width: 5%; /* 幅 */
+    width: 7%; /* 幅 */
     margin: 1% 4% 1% 2%; /* 前後の余白 */
     padding: 1%; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
@@ -54,7 +54,7 @@ html,body{
     appearance: none;
     /* スタイル指定*/
     display: inline-block;
-    width: 5%; /* 幅 */
+    width: 7%; /* 幅 */
     margin: 1% 4% 1% 1%; /* 前後の余白 */
     padding: 1%; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
@@ -161,7 +161,7 @@ html,body{
       appearance: none;
       /* スタイル指定*/
       display: inline-block;
-      width: 8%; /* 幅 */
+      width: 7%; /* 幅 */
       margin: 1% 4% 1% 1%; /* 前後の余白 */
       padding: 1%; /* 文字周りの余白 */
       cursor: pointer; /* カーソルを指に */
