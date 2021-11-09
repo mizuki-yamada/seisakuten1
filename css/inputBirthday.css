@@ -1,7 +1,18 @@
-body{
+html,body{
   background-color: rgb(56, 59, 59);
+  height: 100%;
 }
-.background img{width: 100%;}
+.contents{
+  text-align: center;
+}
+.background-image{
+  width: 100%;
+}
+
+.form{
+  text-align: center;
+  color: white;
+}
 
 .month-select {
         /* デフォルトのスタイルを解除*/
@@ -35,7 +46,6 @@ body{
     background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
     background-repeat: no-repeat;
   }
-  
 
   .day-select {
     /* デフォルトのスタイルを解除*/
@@ -45,7 +55,7 @@ body{
     /* スタイル指定*/
     display: inline-block;
     width: 5%; /* 幅 */
-    margin: 1% 4% 1% 2%; /* 前後の余白 */
+    margin: 1% 4% 1% 1%; /* 前後の余白 */
     padding: 1%; /* 文字周りの余白 */
     cursor: pointer; /* カーソルを指に */
     line-height: 250%; /*行高 */
@@ -69,40 +79,42 @@ body{
     background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
     background-repeat: no-repeat;
   }
-  .submit{
-    margin: 0 auto;
-    cursor: pointer;
-  }
-  .submit img{  
-    width: 150%;
-  }
-
-  .footer{
-    width: 100%;
-    margin-left: 45%;
-    margin-top: 1%;
+.submit1{
+  margin:auto;
+  cursor: pointer;
 }
 
-  .footer a:link{
-    color: white;
-  }
-  .footer a:visited{
-    color: white;
-  }
-  .footer a:hover{
-    color: skyblue;
-  }
-  .footer a:active{
-    color: pink
-  }
+.footer{
+  width: 100%;
+  text-align: center;
+  margin:0 auto;
+}
 
-@media screen and (min-width:481px) {
+.footer a:link{
+  color: white;
+}
+.footer a:visited{
+  color: white;
+}
+.footer a:hover{
+  color: skyblue;
+}
+.footer a:active{
+  color: pink
+}
+
+@media screen and (min-width:375px) {
   
-  body{
+  html,body{
     background-color: rgb(56, 59, 59);
+    height: 100%;
   }
-
-  .background img{width: 100%;}
+  .contents{
+    text-align: center;
+  }
+  .background-image{
+    width: 100%;
+  }
   
   .form{
     text-align: center;
@@ -175,17 +187,14 @@ body{
       background-repeat: no-repeat;
     }
   .submit1{
-    margin-left:45%;
+    margin:auto;
     cursor: pointer;
-  }
-  .submit img{  
-    width: 30%;
   }
 
   .footer{
     width: 100%;
-    margin-left: 45%;
-    margin-top: 1%;
+    text-align: center;
+    margin:0 auto;
   }
 
   .footer a:link{
