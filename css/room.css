@@ -44,3 +44,22 @@ body {
     padding: 0 5%;
   }
 }
+
+.footer{
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.footer a:link{
+  color: black;
+}
+.footer a:visited{
+  color: black;
+}
+.footer a:hover{
+  color: skyblue;
+}
+.footer a:active{
+  color: skyblue;
+}

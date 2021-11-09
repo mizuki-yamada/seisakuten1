@@ -20,13 +20,12 @@ document.getElementById("clock").style.height = document.getElementById("clock")
 // URLから誕生日を取得
 var url = new URL(window.location.href);
 var params = url.searchParams;
-var month = params.get('month').padStart(2, '0');
-var day = params.get('day').padStart(2, '0');
-var bd = month + "/" + day;
+var month = params.get('month');
+var day = params.get('day');
 
 var targets = document.getElementsByClassName("choice");
 for(let i = 0; i < targets.length; i++){
   targets[i].onclick = function() {
-    location.href='room.html'+"?bd="+bd + "&num="+targets[i].value;
+    location.href='room.html'+"?month="+month+"&day="+day+"&num="+targets[i].value;
   }
 }

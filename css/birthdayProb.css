@@ -1,5 +1,6 @@
 body {
   background-color: #385723;
+  font-family: sans-serif;
 }
 
 img {
@@ -22,4 +23,23 @@ h3, p {
 
 h3 {
   text-decoration-line: underline;
+}
+
+.footer{
+  width: 100%;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.footer a:link{
+ color: white;
+}
+.footer a:visited{
+ color: white;
+}
+.footer a:hover{
+ color: yellow;
+}
+.footer a:active{
+ color: yellow;
 }

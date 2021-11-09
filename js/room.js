@@ -8,7 +8,12 @@ const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6e
 // URLから誕生日を取得
 const url = new URL(window.location.href);
 const params = url.searchParams;
-const birthday = params.get('bd');
+const month = params.get('month');
+const day = params.get('day');
+const birthday = month.padStart(2, '0') + "/" + day.padStart(2, '0');
+
+document.getElementById("choice").href = "https://mizuki-yamada.github.io/seisakuten1/roomChoice.html?month="+month+"&day="+day;
+
 let N;
 const row_n = 10;
 let birthdays;
