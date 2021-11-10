@@ -75,8 +75,8 @@ const wait = (async()=> {
         const container = new PIXI.Container();
         container.x = width / row_n *  ( i%row_n );
         container.y = Math.floor(i/row_n) * person_height;
-        // var image_path = "../images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for local
-        var image_path = "/seisakuten1/images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for github pages
+        var image_path = "../images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for local
+        // var image_path = "/seisakuten1/images/person" + String(1 + Math.floor(Math.random()*3)) + ".png";// for github pages
         var image = PIXI.Texture.from(image_path); 
         var person = new PIXI.Sprite(image);
         person.width = person_width;

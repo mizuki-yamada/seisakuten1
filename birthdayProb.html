@@ -8,17 +8,48 @@
 </head>
 <body>
   <div id="content">
-    <img src="./images/explanation1.png" alt="">
-    <div class="box">
-      <h3>計算してみよう！</h3>
-    <p>教室に<input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()">人いるとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
-    <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob">70.6</var> %です。</p>
+    <div class="part">
+      <p>教室の中に同じ誕生日がいる確率は、余事象の考え方を使って計算できます。</p>
+      <p class="yellow">少なくとも一組同じ誕生日がいる確率　=　１-（全員が異なる誕生日である確率）</p>
+      <p>クラスの人数をn人とすると下の式になります。</p>
+      <img id="eq1" src="./images/equation1.png" alt="">
+      <p>30人のクラスであれば</p>
+      <img id="eq2" src="./images/equation2.png" alt="">
+      <p class="right">となります。</p>
+      <p>思ったより大きな値になって驚いた人も多いのではないでしょうか。</p>
+      <p>確かに「自分と同じ」誕生日の人が教室にいる確率を考えると</p>
+      <img id="eq3" src="./images/equation3.png" alt="">
+      <p>という式になり、30人のクラスであればこの値はおよそ0.079となります。</p>
+      <p>クラス内に少なくとも一組いる確率と比べると９分の1程度になっていますね。</p>
+
+      <div class="box">
+        <h3>他の値でも計算してみよう！</h3>
+        <p>教室に<input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()">人いるとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
+        <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob">70.6</var> %です。</p>
+      </div>  
     </div>
-    <img src="./images/explanation2.png" alt="">
+    <hr>
+    <div class="part">
+      <p>では、「少なくとも一組同じ誕生日がいる」とは具体的にどのような場合があるでしょうか。</p>
+          <ul>
+            <li>
+              <p>二人組が一つだけ</p>
+              <img id="eq4" src="./images/equation4.png" alt="">
+            </li>
+            <li>
+              <p>二人組が二つ</p>
+              <img id="eq5" src="./images/equation5.png" alt="">
+            </li>
+            <li>
+              <p>三人組が一つ</p>
+              <img id="eq6" src="./images/equation6.png" alt="">
+            </li>
+          </ul>
+    </div>  
   </div>
   
   <div class="footer">
-    <p><a href="https://kurapyon31.github.io/probUT/">TOPに戻る</a></p>
+    <a href="https://kurapyon31.github.io/probUT/">TOPに戻る</a>
   </div>
 
   <script src="js/birthdayProb.js"></script>
