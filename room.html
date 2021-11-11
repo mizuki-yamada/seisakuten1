@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>教室の中で試してみよう</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="./css/room.css">
   <script src="src/pixi.min.js"></script>
 </head>
@@ -15,7 +16,9 @@
     </div>
   </div>
   
-  <input type="button" id="check_all" value="全員分確かめる" onclick="check_all();" />
+  <div class="area">
+    <input id="check_all" type="button" value="全員分確かめる" onclick="check_all();" />
+  </div>
   <main id="app"></main>
 
   <div class="footer">

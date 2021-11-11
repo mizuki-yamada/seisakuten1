@@ -15,7 +15,11 @@ const birthday = month.padStart(2, '0') + "/" + day.padStart(2, '0');
 document.getElementById("choice").href = "https://mizuki-yamada.github.io/seisakuten1/roomChoice.html?month="+month+"&day="+day;
 
 let N;
-const row_n = 10;
+let row_n = 10;
+if(window.matchMedia("(max-width:600px)").matches){
+    row_n = 5;
+}
+
 let birthdays;
 let clicked_index = new Set();
 let clicked_birthday = new Array();

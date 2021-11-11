@@ -12,30 +12,45 @@ body {
 }
 
 #blackboard-contents {
+  width: 50%;
   position: absolute;
-  top: 10%;
-  padding: 0 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
 }
 
 #blackboard-contents button {
+  margin: 5% 20%;
   display: none;
 }
 
 #message {
+  margin: 5%;
   text-align: left;
   color: white;
-  font-size: small;
+}
+
+.area {
+  margin: 20px auto;
+  text-align: center;
 }
 
 #check_all {
-  display: block;
+  display: inline-block;
   cursor: pointer;
   width: 160px;
-  text-align: center;
+  height: 50px;
   border: 1px solid #232323;
 }
 
 @media (max-width: 600px) {
+  #blackboard-contents {
+    width: 100%;
+  }
+  
   .blackboard img {
     width: 100%;
   }
