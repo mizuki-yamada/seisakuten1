@@ -1,7 +1,15 @@
 function onChangeNum(e) {
     var num = Number(document.getElementById('num').value);
-    document.getElementById('prob_unique').innerHTML = (100*prob_unique(num)).toPrecision([3]);
-    document.getElementById('prob').innerHTML = (100*(1.0-prob_unique(num))).toPrecision([3]);    
+    document.getElementById('prob_unique').innerHTML = (prob_unique(num)).toPrecision([3]);
+    document.getElementById('prob').innerHTML = (100-prob_unique(num)).toPrecision([3]);
+}
+
+function onChangeNum2(e) {
+    var num = Number(document.getElementById('num2').value);
+    document.getElementById('pair1').innerHTML = (prob_pair(num, 1)).toPrecision([3]);
+    document.getElementById('pair2').innerHTML = (prob_pair(num, 2)).toPrecision([3]);
+    document.getElementById('pair3').innerHTML = (prob_pair(num, 3)).toPrecision([3]);   
+    document.getElementById('trio').innerHTML = (prob_trio(num)).toPrecision([3]);   
 }
 
 function prob_unique(n) {
@@ -12,5 +20,39 @@ function prob_unique(n) {
     for(var i = 364; i > 365-n; i--) {
         ans *= i / 365;
     }
-    return ans;
+    return 100*ans;
+}
+
+function comb_2(n) {
+    return n * (n-1) / 2.0;
+}
+
+function prob_pair(n, m) {
+    ans = 1.0;
+    for(var i = 0; i < m; i++) {
+        ans *= comb_2(n-i*2);
+        ans /= (i+1);
+    }
+    for(var i = 365; i >= (365-n+1); i--) {
+        if (i >= 365-n+1+m) {
+            ans *= i / 365.0;
+        }
+        else {
+            ans /= 365.0;
+        }
+    }
+    return 100*ans;
+}
+
+function prob_trio(n) {
+    ans = n * (n-1) * (n-2)/ 6.0;
+    for(var i = 365; i >= (365-n+1); i--) {
+        if (i >= 365-n+3) {
+            ans *= i / 365.0;
+        }
+        else {
+            ans /= 365.0;
+        }
+    }
+    return 100*ans;
 }
