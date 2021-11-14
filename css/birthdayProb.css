@@ -85,14 +85,14 @@ h3 {
 }
 
 .footer a:link{
- color: white;
+  color: white;
 }
 .footer a:visited{
- color: white;
+  color: white;
 }
 .footer a:hover{
- color: yellow;
+  color: skyblue;
 }
 .footer a:active{
- color: yellow;
+  color: pink;
 }
