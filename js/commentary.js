@@ -1,3 +1,11 @@
+const url = new URL(window.location.href);
+const params = url.searchParams;
+const month = params.get('month');
+const day = params.get('day');
+const room = params.get('room');
+
+document.getElementById("choice").href = "roomChoice.html?month="+month+"&day="+day;
+
 function onChangeNum(e) {
     var num = Number(document.getElementById('num').value);
     document.getElementById('prob_unique').innerHTML = (prob_unique(num)).toPrecision([3]);

@@ -11,8 +11,9 @@ const params = url.searchParams;
 const month = params.get('month');
 const day = params.get('day');
 const birthday = month.padStart(2, '0') + "/" + day.padStart(2, '0');
+const room = params.get('room');
 
-document.getElementById("choice").href = "https://mizuki-yamada.github.io/seisakuten1/roomChoice.html?month="+month+"&day="+day;
+document.getElementById("choice").href = "roomChoice.html?month="+month+"&day="+day;
 
 let N;
 let row_n = 10;
@@ -34,14 +35,22 @@ let textWhite;
 let people = []; // array of person container
 
 const wait = (async()=> {
-    if (params.get('num') == 'secret') {
+    if (room == 'secret') {
         // await OnPost();
         birthdays = await OnGet();
         console.log(birthdays);
         N = birthdays.length;
+        document.getElementById("room_description").innerHTML = "ここは本作品の来場者が集まる教室です。直近30人の訪問者の中に同じ誕生日の人はいるでしょうか。";
+    }
+    else if (room == 'member') {
+        birthdays = await OnGet();
+        birthdays.add(birthday);
+        console.log(birthdays);
+        N = birthdays.length;
+        document.getElementById("room_description").innerHTML = "ここは制作展メンバーの教室です。制作展メンバーの中にあなたと同じ誕生日の人はいるでしょうか。";
     }
     else {
-        N = Number(params.get('num'));
+        N = Number(room);
         birthdays = new Array(N)
         for (var i = 0; i < N; i++) {
             if (i == N-1) {
@@ -51,6 +60,7 @@ const wait = (async()=> {
                 birthdays[i] = getRandomYmd('1920/01/01', '2020/01/01');
             }
         }
+        document.getElementById("room_description").innerHTML = "この教室には"+String(N)+"人います。";
     }
     
     height = (Math.floor((N-1) / row_n) + 1) * person_height;
@@ -154,7 +164,7 @@ function update(index) {
     // when all elements are clicked
     if (clicked_index.size == N) {
         document.getElementById('message').innerHTML = getProbMessage();
-        document.getElementById('explanation-button').style.display="inline";
+        document.getElementById('commentary-button').style.display="inline";
     }
 }
 
@@ -191,6 +201,11 @@ function getProbMessage() {
     + N + "人の教室の中に少なくとも1組同じ誕生日がいる確率は" 
     + (100-100*prob_unique(N)).toPrecision([3]) + "%です。";
     return message
+}
+
+function showCommentary() {
+    const commentary_url = "commentary.html?month="+month+"&day="+day+"&room="+room;
+    document.location.href = commentary_url;
 }
 
 async function OnPost(){

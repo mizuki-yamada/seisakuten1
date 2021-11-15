@@ -26,6 +26,6 @@ var day = params.get('day');
 var targets = document.getElementsByClassName("choice");
 for(let i = 0; i < targets.length; i++){
   targets[i].onclick = function() {
-    location.href='room.html'+"?month="+month+"&day="+day+"&num="+targets[i].value;
+    location.href='room.html'+"?month="+month+"&day="+day+"&room="+targets[i].value;
   }
 }
