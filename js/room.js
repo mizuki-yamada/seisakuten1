@@ -3,7 +3,7 @@ if (!PIXI.utils.isWebGLSupported()) {
     type = "canvas";
 }
 
-const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6ejAr3dxsalXxOO1CkQ8b5QtdCD2GZXCR8Ggd291Kr7Se4_w/exec"
+const gas_url = "https://script.google.com/macros/s/AKfycbyk5ln210mfkSV2WfneMZqRg7EEUGKCTCuB93LpcE2n7UmQIvX8574xYjJuKccAtIHtuQ/exec"
 
 // URLから誕生日を取得
 const url = new URL(window.location.href);
@@ -44,7 +44,7 @@ const wait = (async()=> {
     }
     else if (room == 'member') {
         birthdays = await OnGet();
-        birthdays.add(birthday);
+        birthdays.push(birthday);
         console.log(birthdays);
         N = birthdays.length;
         document.getElementById("room_description").innerHTML = "ここは制作展メンバーの教室です。制作展メンバーの中にあなたと同じ誕生日の人はいるでしょうか。";
@@ -223,7 +223,8 @@ async function OnPost(){
 }
 
 async function OnGet(){
-    return fetch(gas_url)
+    var gas_url_with_param = gas_url + "?room=" + room;
+    return fetch(gas_url_with_param)
     .then(response => {
         return response.json();
     })

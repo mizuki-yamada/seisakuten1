@@ -161,7 +161,7 @@ document.getElementById("birthday").onkeypress = (e) => {
   }
 
 function OnPost(){
-    const gas_url = "https://script.google.com/macros/s/AKfycbyshKrWP1zYv4Vu2ouaTX6ejAr3dxsalXxOO1CkQ8b5QtdCD2GZXCR8Ggd291Kr7Se4_w/exec"
+    const gas_url = "https://script.google.com/macros/s/AKfycbyk5ln210mfkSV2WfneMZqRg7EEUGKCTCuB93LpcE2n7UmQIvX8574xYjJuKccAtIHtuQ/exec"
     var month = birthMonth.value.padStart(2, '0');
     var day = birthDay.value.padStart(2, '0');
     let SendDATA = {
