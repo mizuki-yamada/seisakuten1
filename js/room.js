@@ -33,6 +33,7 @@ let height;
 
 let textWhite;
 let people = []; // array of person container
+let self_index = -1;
 
 const wait = (async()=> {
     if (room == 'secret') {
@@ -40,6 +41,7 @@ const wait = (async()=> {
         birthdays = await OnGet();
         console.log(birthdays);
         N = birthdays.length;
+        self_index = birthdays.lastIndexOf(birthday);
         document.getElementById("room_description").innerHTML = "ここは本作品の来場者が集まる教室です。直近30人の訪問者の中に同じ誕生日の人はいるでしょうか。";
     }
     else if (room == 'member') {
@@ -47,6 +49,7 @@ const wait = (async()=> {
         birthdays.push(birthday);
         console.log(birthdays);
         N = birthdays.length;
+        self_index = N-1;
         document.getElementById("room_description").innerHTML = "ここは制作展メンバーの教室です。制作展メンバーの中にあなたと同じ誕生日の人はいるでしょうか。";
     }
     else {
@@ -60,6 +63,7 @@ const wait = (async()=> {
                 birthdays[i] = getRandomYmd('1920/01/01', '2020/01/01');
             }
         }
+        self_index = N-1;
         document.getElementById("room_description").innerHTML = "この教室には"+String(N)+"人います。";
     }
     
@@ -104,7 +108,7 @@ const wait = (async()=> {
         container.addChild(person);
         app.stage.addChild(container);
         people.push(container);
-        if (i == N-1) {
+        if (i == self_index) {
             const you = new PIXI.Text("YOU", new PIXI.TextStyle( { fill: 0xffffff, stroke: 0xffffff, fontSize: person_width/6 } ));
             you.position.set(person_width*0.32, person_height * 0.4);
             container.addChild(you);
@@ -114,7 +118,7 @@ const wait = (async()=> {
 })();
 
 async function check_all() {
-    for (var i = 0; i < people.length-1; i++) {
+    for (var i = 0; i < people.length; i++) {
         var timer = new Promise(function(resolve, reject) {
             setTimeout(function() {
                 resolve();
