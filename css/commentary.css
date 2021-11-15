@@ -87,15 +87,17 @@ h3 {
   -moz-user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+  font-size: medium;
 }
 
 .spinner-title {
+  line-height: 30px;
   margin-right: 20px;
 }
 
 .spinner {
   margin: 0 10px;
-  width: 30px;
+  width: 50px;
   padding: 0;
   text-align: center;
   /* border: none; */
@@ -110,13 +112,13 @@ h3 {
 
 .spinner-sub, .spinner-add {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   text-align: center;
   border: 1px solid white;
   border-radius: 50%;
   cursor: pointer;
-  line-height: 20px;
+  line-height: 30px;
 }
 
 .disabled {
