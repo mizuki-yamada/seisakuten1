@@ -1,3 +1,5 @@
+const gas_url = "https://script.google.com/macros/s/AKfycbyk5ln210mfkSV2WfneMZqRg7EEUGKCTCuB93LpcE2n7UmQIvX8574xYjJuKccAtIHtuQ/exec"
+
 window.onload = function(){
     //誕生日の選択肢
     birthDay = document.getElementById('birth_day');
@@ -161,11 +163,13 @@ document.getElementById("birthday").onkeypress = (e) => {
   }
 
 function OnPost(){
-    const gas_url = "https://script.google.com/macros/s/AKfycbyk5ln210mfkSV2WfneMZqRg7EEUGKCTCuB93LpcE2n7UmQIvX8574xYjJuKccAtIHtuQ/exec"
     var month = birthMonth.value.padStart(2, '0');
     var day = birthDay.value.padStart(2, '0');
+    if (month == "00" || day ==  "00") return;
+    var postTime = new Date().toString();
     let SendDATA = {
-      "birthday" : month + "/" + day
+      "birthday" : month + "/" + day,
+      "time" : postTime
     };
     let postparam = {
       "method" : "POST",
