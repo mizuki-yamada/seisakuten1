@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>確率を計算してみよう</title>
-  <script src="src/pixi.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="./css/commentary.css">
 </head>
 <body>
@@ -24,7 +24,14 @@
 
       <div class="box">
         <h3>他の値でも計算してみよう！</h3>
-        <p>教室に<input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()">人いるとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
+        <div class="spinner-container">
+          <span class="spinner-title">教室の人数</span>
+          <span class="spinner-sub">-</span>
+          <input id="num" class="spinner" type="number" min="0" max="366" value="30" onchange="onChangeNum()">
+          <span class="spinner-add">+</span>
+        </div> 
+          <!-- <input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()"> -->
+        <p>このとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
         <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob">70.6</var> %です。</p>
       </div>  
     </div>
@@ -48,8 +55,13 @@
     </div>
     <div class="part">
       <div class="box">
-        <h3>計算してみよう！</h3>
-        <p>教室に<input type="number" id="num2" value=30 min=0 max=366 onchange="onChangeNum2()">人いるとき、
+        <h3>いろいろな値で計算してみよう！</h3>
+        <div class="spinner-container">
+          <span class="spinner-title">教室の人数</span>
+          <span class="spinner-sub">-</span>
+          <input id="num2" class="spinner" type="number" min="0" max="366" value="30" onchange="onChangeNum2()">
+          <span class="spinner-add">+</span>
+        </div> 
         <ul>
           <li>
             <p>二人組がちょうど一つある確率は<var id="pair1">38.0</var> %です。</p>
