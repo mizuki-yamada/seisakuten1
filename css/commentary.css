@@ -12,14 +12,18 @@ hr {
   margin: 100;
 }
 
+.sp-br {
+  display: none;
+}
+
 #content {
   margin : 0 5%;
 }
 
 .yellow {
+  display: block;
   color: yellow;
   font-weight: bold;
-  text-decoration: underline;
 }
 
 .part {
@@ -76,6 +80,16 @@ h3, p, li {
 
 h3 {
   text-decoration-line: underline;
+}
+
+
+@media (max-width: 600px) { /* for smart phone*/
+  .sp-br {
+    display: inline;
+  }
+  .yellow {
+    text-indent: 20px;
+  }
 }
 
 .footer{
