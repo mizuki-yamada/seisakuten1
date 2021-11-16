@@ -23,8 +23,12 @@ body {
   flex-direction: column;
 }
 
-#blackboard-contents button {
-  margin: 5% 20%;
+#commentary-button {
+  color:black;
+  cursor: pointer;
+  height: 30px;
+  border: 1px solid #232323;
+  margin: 5% 20% 10%;
   display: none;
 }
 
@@ -44,10 +48,11 @@ body {
 }
 
 #check_all {
+  color:black;
   display: inline-block;
   cursor: pointer;
   width: 160px;
-  height: 50px;
+  height: 30px;
   border: 1px solid #232323;
 }
 
