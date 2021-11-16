@@ -48,22 +48,7 @@ hr {
   text-align: right;
 }
 
-#eq1 {
-  width: 85%;
-  max-width: 1000px;
-}
-
-#eq2 {
-  width: 35%;
-  max-width: 500px;
-}
-
-#eq3 {
-  width: 75%;
-  max-width: 800px;
-}
-
-#eq4, #eq5, #eq6 {
+.equation {
   width: 100%;
   max-width: 900px;
 }
