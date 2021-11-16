@@ -48,6 +48,11 @@ hr {
   text-align: right;
 }
 
+.part dt li{
+  text-align: left;
+  text-decoration-line:initial;
+}
+
 .equation {
   width: 100%;
   max-width: 900px;
