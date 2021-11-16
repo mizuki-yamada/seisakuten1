@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>確率を計算してみよう</title>
-  <script src="src/pixi.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="./css/commentary.css">
 </head>
 <body>
@@ -14,7 +14,7 @@
       <p>クラスの人数をn人とすると下の式になります。</p>
       <img id="eq1" src="./images/eq1.png" alt="">
       <p>30人のクラスであれば</p>
-      <img id="eq2" src="./images/equation2.png" alt="">
+      <img id="eq2" src="./images/eq2.png" alt="">
       <p class="right">となります。</p>
       <p>思ったより大きな値になって驚いた人も多いのではないでしょうか。</p>
       <p>確かに「自分と同じ」誕生日の人が教室にいる確率を考えると</p>
@@ -24,7 +24,14 @@
 
       <div class="box">
         <h3>他の値でも計算してみよう！</h3>
-        <p>教室に<input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()">人いるとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
+        <div class="spinner-container">
+          <span class="spinner-title">教室の人数</span>
+          <span class="spinner-sub">-</span>
+          <input id="num" class="spinner" type="number" min="0" max="366" value="30" onchange="onChangeNum()">
+          <span class="spinner-add">+</span>
+        </div> 
+          <!-- <input type="number" id="num" value=30 min=0 max=366 onchange="onChangeNum()"> -->
+        <p>このとき、全員が異なる誕生日である確率は<var id="prob_unique">29.4</var> %です。</p>
         <p>つまり少なくとも1組同じ誕生日がいる確率は<var id="prob">70.6</var> %です。</p>
       </div>  
     </div>
@@ -45,11 +52,14 @@
               <img id="eq6" src="./images/eq6.png" alt="">
             </li>
           </ul>
-    </div>
-    <div class="part">
       <div class="box">
-        <h3>計算してみよう！</h3>
-        <p>教室に<input type="number" id="num2" value=30 min=0 max=366 onchange="onChangeNum2()">人いるとき、
+        <h3>いろいろな値で計算してみよう！</h3>
+        <div class="spinner-container">
+          <span class="spinner-title">教室の人数</span>
+          <span class="spinner-sub">-</span>
+          <input id="num2" class="spinner" type="number" min="0" max="366" value="30" onchange="onChangeNum2()">
+          <span class="spinner-add">+</span>
+        </div> 
         <ul>
           <li>
             <p>二人組がちょうど一つある確率は<var id="pair1">38.0</var> %です。</p>
@@ -69,11 +79,8 @@
   </div>
   
   <div class="footer">
-    <a id="choice">部屋選択に戻る</a>
-  </div>
-
-  <div class="footer">
-    <a href="https://kurapyon31.github.io/probUT/">『確率であそぼ、』Topへ</a>
+    <div><a id="choice">部屋選択に戻る</a></div>
+    <div><a href="https://kurapyon31.github.io/probUT/">『確率であそぼ、』Topへ</a></div>
   </div>
 
   <script src="js/commentary.js"></script>

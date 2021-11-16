@@ -1,5 +1,6 @@
 body {
   background-color: #385723;
+  color: white;
   font-family: sans-serif;
 }
 
@@ -63,7 +64,7 @@ hr {
 }
 
 #eq4, #eq5, #eq6 {
-  width: 80%;
+  width: 100%;
   max-width: 900px;
 }
 
@@ -73,13 +74,56 @@ hr {
   border: 2px dashed whitesmoke;
 }
 
-h3, p, li {
-  color: white;
+h3 {
+  text-decoration-line: underline;
+}
+
+
+.spinner-container {
+  display: flex;
+  justify-content: left;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
   font-size: medium;
 }
 
-h3 {
-  text-decoration-line: underline;
+.spinner-title {
+  line-height: 30px;
+  margin-right: 20px;
+}
+
+.spinner {
+  margin: 0 10px;
+  width: 50px;
+  padding: 0;
+  text-align: center;
+  /* border: none; */
+  /* background: none; */
+  outline: none;
+  /* pointer-events: none; */
+}
+
+.spinner::-webkit-inner-spin-button, .spinner::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.spinner-sub, .spinner-add {
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: inherit;
 }
 
 
@@ -109,4 +153,7 @@ h3 {
 }
 .footer a:active{
   color: pink;
+}
+.footer div{
+  margin-bottom: 20px;
 }
