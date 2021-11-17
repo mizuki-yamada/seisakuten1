@@ -76,7 +76,8 @@ const wait = (async()=> {
         height: height,        // default: 600
         antialias: true,    // default: false
         transparent: false, // default: false
-        resolution: 1,       // default: 1
+        resolution: window.devicePixelRatio || 1, // default: 1
+        autoResize: true,
         backgroundColor: 0xC9AD7D,
     });
 

@@ -56,6 +56,10 @@ body {
   border: 1px solid #232323;
 }
 
+#app canvas {
+  width: 100%;
+}
+
 @media (max-width: 600px) {
   #blackboard-contents {
     width: 100%;
