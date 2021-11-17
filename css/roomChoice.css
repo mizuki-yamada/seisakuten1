@@ -3,14 +3,16 @@
     background-color: #ffffff;
     font-family: sans-serif,'Segoe UI', Tahoma, Geneva, Verdana;
 }
-img{
-   width: 100%;
-   background-size: cover;
-}
+
 .header{
     margin-top: 1%;
     text-align: center;
 }
+
+.header-image{
+    width: 100%;
+    background-size: cover;
+ }
 
 .main{
     margin-top: 5%;
@@ -27,11 +29,10 @@ img{
     margin: auto;
     width: 100px;
     height: 100px;
-    background:#fff3b8;
-    border-top: solid #c69c6d;
-    border-left: solid #c69c6d;
-    border-right: solid #c69c6d ;
-    border-bottom: none;
+    border-top: solid black;
+    border-left: solid black;
+    border-right: solid black ;
+    border-bottom: solid black;
     border-radius: 10px 10px 0 0;
     display: flex;
     justify-content: center;
@@ -42,7 +43,7 @@ img{
     width: 80%;
     height: 80%;
     border-radius: 50%;
-    border: solid 2px #c69c6d;
+    border: solid 2px black;
     background: white;   
 }
 
@@ -79,34 +80,21 @@ img{
 
 .kousha_shita{
     margin:0 auto;
-    width: 80%;
-    background:#fff3b8;
-    border: solid;
-    border-color: #c69c6d;
-    border-radius: 10px;
+    width: 100%;
+    background:white;
 }
 
 .button{
-    padding-top: 3%;
-    padding-bottom: 3%;
+    /* padding-top: 3%;
+    padding-bottom: 3%; */
     display: flex;
-    justify-content: space-evenly;
 }
 
 .choice{
-    padding: 2%;
-    border: solid #c69c6d;
-    border-radius: 5px;
-    background-color: aqua;
-    transition: none;
-    box-shadow: 0 3px 0 gray;
-    text-shadow: 0 1px 1px gray;
-    text-align: center;
-    font-size: large;
+    width: 25%;
 }
 
 .choice:hover{
-    background-color: #b9faff;
     box-shadow: 0 3px 0 gray;
     cursor: pointer;
 }
@@ -129,273 +117,3 @@ img{
   .footer a:active{
     color: pink
   }
-
-@media screen and (min-width:376px) and (max-width:1023px) {
-    html,body{
-        height: 100%;
-        background-color: #ffffff;
-        font-family: sans-serif,'Segoe UI', Tahoma, Geneva, Verdana;
-    }
-    img{
-       width: 98%;
-       height: 200px;
-       background-size: cover;
-    }
-    .header{
-        margin-top: 1%;
-        text-align: center;
-    }
-    
-    .main{
-        margin-top: 5%;
-        text-align: center;
-    }
-    
-    .setsumei{
-        font-size: large;
-        font-weight: 300;
-        padding-top: 3%;
-        padding-bottom: 1%;
-    }
-    .kousha{
-        margin: auto;
-        width: 100px;
-        height: 100px;
-        background:#fff3b8;
-        border-top: solid #c69c6d;
-        border-left: solid #c69c6d;
-        border-right: solid #c69c6d ;
-        border-bottom: none;
-        border-radius: 10px 10px 0 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .clock-circle{
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        border: solid 2px #c69c6d;
-        background: white;   
-    }
-    
-    #clock{
-        margin: 40px auto;
-        max-width: 700px; /* 幅のレスポンシブ対応 、height 値は JavaScript で決める*/
-        position: relative;
-        border-color: #c69c6d;
-    }
-    
-    #minute-hand{
-        animation: rotation-m2 3600s linear infinite; /* 3600秒、1時間かけて一周 */
-        background-color: #000;
-        border-radius: 5px;
-        height: 5px; /* 線幅 */
-        position: absolute;
-        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-        width: 40%;
-    }
-    
-    #hour-hand{
-        animation: rotation-h2 86400s linear infinite; /* 86400秒、12時間かけて一周 */
-        background-color: #000;
-        border-radius: 5px;
-        height: 5px; /* 線幅 */
-        position: absolute;
-        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-        width: 25%; 
-    }
-    
-    .kousha_shita{
-        margin:0 auto;
-        width: 80%;
-        background:#fff3b8;
-        border: solid;
-        border-color: #c69c6d;
-        border-radius: 10px;
-    }
-    
-    .button{
-        padding-top: 3%;
-        padding-bottom: 3%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    
-    .choice{
-        padding: 4%;
-        border: solid #c69c6d;
-        border-radius: 5px;
-        background-color: aqua;
-        transition: none;
-        box-shadow: 0 3px 0 gray;
-        text-shadow: 0 1px 1px gray;
-        text-align: center;
-        font-size: medium;
-    }
-    
-    .choice:hover{
-        background-color: #b9faff;
-        box-shadow: 0 3px 0 gray;
-        cursor: pointer;
-    }
-    
-     .footer{
-         width: 100%;
-         text-align: center;
-         margin-top: 5%;
-     }
-    
-     .footer a:link{
-        color: black;
-      }
-      .footer a:visited{
-        color: black;
-      }
-      .footer a:hover{
-        color: skyblue;
-      }
-      .footer a:active{
-        color: pink
-      }
-}
-
-@media screen and (min-width:1023px) and (max-width:1439px){
-    html,body{
-        height: 100%;
-        background-color: #ffffff;
-        font-family: sans-serif,'Segoe UI', Tahoma, Geneva, Verdana;
-    }
-    img{
-       width: 98%;
-       height: 280px;
-       background-size: cover;
-    }
-    .header{
-        margin-top: 1%;
-        text-align: center;
-    }
-    
-    .main{
-        margin-top: 5%;
-        text-align: center;
-    }
-    
-    .setsumei{
-        font-size: large;
-        font-weight: 300;
-        padding-top: 3%;
-        padding-bottom: 1%;
-    }
-    .kousha{
-        margin: auto;
-        width: 100px;
-        height: 100px;
-        background:#fff3b8;
-        border-top: solid #c69c6d;
-        border-left: solid #c69c6d;
-        border-right: solid #c69c6d ;
-        border-bottom: none;
-        border-radius: 10px 10px 0 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .clock-circle{
-        width: 80%;
-        height: 80%;
-        border-radius: 50%;
-        border: solid 2px #c69c6d;
-        background: white;   
-    }
-    
-    #clock{
-        margin: 40px auto;
-        max-width: 700px; /* 幅のレスポンシブ対応 、height 値は JavaScript で決める*/
-        position: relative;
-        border-color: #c69c6d;
-    }
-    
-    #minute-hand{
-        animation: rotation-m2 3600s linear infinite; /* 3600秒、1時間かけて一周 */
-        background-color: #000;
-        border-radius: 5px;
-        height: 5px; /* 線幅 */
-        position: absolute;
-        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-        width: 40%;
-    }
-    
-    #hour-hand{
-        animation: rotation-h2 86400s linear infinite; /* 86400秒、12時間かけて一周 */
-        background-color: #000;
-        border-radius: 5px;
-        height: 5px; /* 線幅 */
-        position: absolute;
-        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        top: calc(1% - 2.5px); /* 位置調整 線幅の半分ずらす */
-        transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-        width: 25%; 
-    }
-    
-    .kousha_shita{
-        margin:0 auto;
-        width: 80%;
-        background:#fff3b8;
-        border: solid;
-        border-color: #c69c6d;
-        border-radius: 10px;
-    }
-    
-    .button{
-        padding-top: 3%;
-        padding-bottom: 3%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-    
-    .choice{
-        padding: 5%;
-        border: solid #c69c6d;
-        border-radius: 5px;
-        background-color: aqua;
-        transition: none;
-        box-shadow: 0 3px 0 gray;
-        text-shadow: 0 1px 1px gray;
-        text-align: center;
-        font-size: medium;
-    }
-    
-    .choice:hover{
-        background-color: #b9faff;
-        box-shadow: 0 3px 0 gray;
-        cursor: pointer;
-    }
-    
-     .footer{
-         width: 100%;
-         text-align: center;
-         margin-top: 5%;
-     }
-    
-     .footer a:link{
-        color: black;
-      }
-      .footer a:visited{
-        color: black;
-      }
-      .footer a:hover{
-        color: skyblue;
-      }
-      .footer a:active{
-        color: pink
-      }
-}
