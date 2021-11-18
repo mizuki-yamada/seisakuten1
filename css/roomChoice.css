@@ -196,7 +196,6 @@
     
     .choice:active{
         opacity: 1.2;
-        box-shadow: 2px 8px 4px rgba(0, 0, 0, .3);
     }
     
      .footer{
