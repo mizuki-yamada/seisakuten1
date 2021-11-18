@@ -12,11 +12,11 @@
 .header-image{
     width: 100%;
     background-size: cover;
-    margin-top: 1%;
+    margin: 0 auto;
  }
 
 .main{
-    margin-top: 5%;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -128,7 +128,7 @@
      }
     
     .main{
-        margin-top: 5%;
+        margin: 0 auto;
         text-align: center;
     }
     
