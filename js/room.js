@@ -169,6 +169,7 @@ function update(index) {
     // when all elements are clicked
     if (clicked_index.size == N) {
         document.getElementById('message').innerHTML = getProbMessage();
+        document.getElementById('check-all').style.display="none";
         document.getElementById('commentary-button').style.display="inline";
     }
 }

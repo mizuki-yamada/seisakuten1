@@ -23,14 +23,7 @@ body {
   flex-direction: column;
 }
 
-#commentary-button {
-  color:black;
-  cursor: pointer;
-  height: 30px;
-  border: 1px solid #232323;
-  margin: 5% 20% 10%;
-  display: none;
-}
+
 
 #message {
   margin: 5%;
@@ -47,13 +40,22 @@ body {
   text-align: center;
 }
 
-#check_all {
+button {
   color:black;
-  display: inline-block;
+  font-weight: bold;
   cursor: pointer;
   width: 160px;
   height: 30px;
-  border: 1px solid #232323;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+#check-all {
+  display: inline-block;
+}
+
+#commentary-button {
+  display: none;
 }
 
 #app canvas {
