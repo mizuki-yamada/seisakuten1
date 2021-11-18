@@ -194,8 +194,9 @@
         cursor: pointer;
     }
     
-    .choice:hover{
-        opacity: 0.8;
+    .choice:active{
+        opacity: .8;
+        box-shadow: 2px 8px 4px rgba(0, 0, 0, .3);
     }
     
      .footer{
