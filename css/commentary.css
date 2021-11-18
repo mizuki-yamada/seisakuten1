@@ -4,6 +4,15 @@ body {
   font-family: sans-serif;
 }
 
+#commentary-title {
+  margin: 0 5%;
+}
+
+#commentary-title img {
+  width: 100%;
+  max-width: 800px;
+}
+
 img {
   width: 100%;
 }
