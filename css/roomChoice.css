@@ -20,11 +20,9 @@
     text-align: center;
 }
 
-.setsumei{
-    font-size: large;
-    font-weight: 300;
-    padding-top: 3%;
-    padding-bottom: 1%;
+.setsumei img{
+    margin: 0 auto;
+    width: 100%;
 }
 
 .kousha{
@@ -134,11 +132,9 @@
         text-align: center;
     }
     
-    .setsumei{
-        font-size: small;
-        font-weight: 300;
-        padding-top: 0.1%;
-        padding-bottom: 1%;
+    .setsumei img{
+        margin: 0 auto;
+        width: 100%;
     }
     
     .kousha{
@@ -200,8 +196,7 @@
     
     .choice:hover{
         box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
-        transform: translateY(-10px);
-        transition-duration: 0.5s;
+        opacity: 0.8;
     }
     
      .footer{
