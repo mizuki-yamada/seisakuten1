@@ -44,14 +44,14 @@
     background: white;   
 }
 
-#clock{
+.clock{
     margin: 40px auto;
     max-width: 700px; /* 幅のレスポンシブ対応 、height 値は JavaScript で決める*/
     position: relative;
     border-color: #c69c6d;
 }
 
-#minute-hand{
+.minute-hand{
     animation: rotation-m2 3600s linear infinite; /* 3600秒、1時間かけて一周 */
     background-color: #000;
     border-radius: 5px;
@@ -59,11 +59,11 @@
     position: absolute;
     right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
     top: calc(15% - 2.5px); /* 位置調整 線幅の半分ずらす */
-    transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-    width: 45%;
+    transform-origin: calc(100% - 2.5px) center;/* アニメーションの中心軸 線幅の半分ずらす */
+    width: 40%;
 }
 
-#hour-hand{
+.hour-hand{
     animation: rotation-h2 86400s linear infinite; /* 86400秒、12時間かけて一周 */
     background-color: #000;
     border-radius: 5px;
@@ -72,23 +72,17 @@
     right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
     top: calc(15% - 2.5px); /* 位置調整 線幅の半分ずらす */
     transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
-    width: 30%; 
+    width: 35%; 
 }
 
 .kousha_shita{
-    margin:0 auto;
+    margin: 0 auto;
+    padding:0 1%;
     width: 100%;
 }
 
-.button{
-    /* padding-top: 3%;
-    padding-bottom: 3%; */
-    display: flex;
-    justify-content: center;
-}
-
 .choice{
-    width: 24%;
+    width: calc(100%/4);
     cursor: pointer;
 }
 
@@ -115,4 +109,118 @@
   }
   .footer a:active{
     color: pink
+  }
+
+  @media screen and (max-width:600px) {
+    html,body{
+        height: 100%;
+        background-color:#C9AD7D;
+        font-family: sans-serif,'Segoe UI', Tahoma, Geneva, Verdana;
+    }
+    
+    .header{
+        margin-top: 1%;
+        text-align: center;
+    }
+    
+    .header-image{
+        width: 100%;
+        background-size: cover;
+        margin-top: 1%;
+     }
+    
+    .main{
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    .setsumei{
+        font-size: small;
+        font-weight: 300;
+        padding-top: 0.1%;
+        padding-bottom: 1%;
+    }
+    
+    .kousha{
+        margin: 2% auto;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .clock-circle{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: solid 3px black;
+        background: white;   
+    }
+    
+    .clock{
+        margin: 40px auto;
+        max-width: 700px; /* 幅のレスポンシブ対応 、height 値は JavaScript で決める*/
+        position: relative;
+        border-color: #c69c6d;
+    }
+    
+    .minute-hand{
+        animation: rotation-m2 3600s linear infinite; /* 3600秒、1時間かけて一周 */
+        background-color: #000;
+        border-radius: 5px;
+        height: 5px; /* 線幅 */
+        position: absolute;
+        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
+        top: calc(15% - 2.5px); /* 位置調整 線幅の半分ずらす */
+        transform-origin: calc(100% - 2.5px) center;/* アニメーションの中心軸 線幅の半分ずらす */
+        width: 40%;
+    }
+    
+    .hour-hand{
+        animation: rotation-h2 86400s linear infinite; /* 86400秒、12時間かけて一周 */
+        background-color: #000;
+        border-radius: 5px;
+        height: 5px; /* 線幅 */
+        position: absolute;
+        right: calc(50% - 2.5px); /* 位置調整 線幅の半分ずらす */
+        top: calc(15% - 2.5px); /* 位置調整 線幅の半分ずらす */
+        transform-origin: calc(100% - 2.5px) center; /* アニメーションの中心軸 線幅の半分ずらす */
+        width: 35%; 
+    }    
+
+    .kousha_shita{
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .choice{
+        width:calc(100%/2.1);
+        cursor: pointer;
+    }
+    
+    .choice:hover{
+        box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+        transform: translateY(-10px);
+        transition-duration: 0.5s;
+    }
+    
+     .footer{
+         width: 100%;
+         text-align: center;
+         margin-top: 5%;
+     }
+    
+     .footer a:link{
+        color: white;
+      }
+      .footer a:visited{
+        color: white;
+      }
+      .footer a:hover{
+        color: skyblue;
+      }
+      .footer a:active{
+        color: pink
+      }
+    
   }
