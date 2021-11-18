@@ -15,7 +15,7 @@ animation.innerHTML = "@keyframes rotation-s2 {0% {transform: rotate(" + secondD
 document.head.appendChild(animation);
 
 // レスポンシブな正方形を作る
-document.getElementById("clock").style.height = document.getElementById("clock").scrollWidth + "px";
+// document.getElementById("clock").style.height = document.getElementById("clock").scrollWidth + "px";
 
 // URLから誕生日を取得
 var url = new URL(window.location.href);
